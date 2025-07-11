@@ -1,113 +1,65 @@
-# EarnBuddy - Build. Collaborate. Earn.
+---
 
-A platform for builders, creators, and visionaries to collaborate and build amazing projects together.
+# 🧠 EarnBuddy — Build. Earn. Grow. Together.
 
-## 🚀 Quick Start
+Welcome to EarnBuddy — a platform built for GenZ students, freelancers, and startup aspirants who want to grow faster by connecting with the right people, ideas, and opportunities.
 
-### Local Development
+## 🚀 What is EarnBuddy?
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+EarnBuddy is a community-driven platform where:
 
-3. Set up Firebase:
-   - Go to [Firebase Console](https://console.firebase.google.com/)
-   - Create a new project or select existing one
-   - Go to Project Settings > General > Your apps
-   - Add a web app and copy the config values
-   - Create a `.env` file in the root directory:
+* 🎯 Startup builders find reliable collaborators and early team members
+* 💼 Freelancers co-work on bigger gigs to earn better and deliver faster
+* 📚 Students break into real-world opportunities, even with zero experience
+* 🌐 Curated pods help you network, learn, and grow with like-minded peers
 
-   ```env
-   VITE_FIREBASE_API_KEY=AIzaSyDoEPIqS_9wXRnWUWP-wTR_BqWBjqFCXVs
-   VITE_FIREBASE_AUTH_DOMAIN=earnbuddy-641b3.firebaseapp.com
-   VITE_FIREBASE_PROJECT_ID=earnbuddy-641b3
-   VITE_FIREBASE_STORAGE_BUCKET=earnbuddy-641b3.firebasestorage.app
-   VITE_FIREBASE_MESSAGING_SENDER_ID=679982634262
-   VITE_FIREBASE_APP_ID=1:679982634262:web:ef471fa3e4f99008216c37
-   ```
+We’re solving the “I have talent, but no access” problem.
 
-4. Enable Firebase services:
-   - Go to Authentication > Sign-in method
-   - Enable Google sign-in
-   - Add your domain to Authorized domains
-   - Enable Firestore Database
+## 🔑 Key Features (in progress)
 
-5. Start the development server:
-   ```bash
-   npm run dev
-   ```
+* ✅ Team/Co-founder matching for early-stage startups
+* ✅ Smart gig-sharing for freelancers (colancing model)
+* ✅ “Starter gigs” for students with no experience
+* ✅ Personalized community pods based on your goals and skills
+* ✅ Skill-based reputation and collaboration history
+* ✅ Access to mentorship, feedback, and beta communities
 
-### 🌐 Netlify Deployment
+## 🧪 Why We’re Building This
 
-To deploy to Netlify with Firebase authentication:
+Too many great ideas die because of:
+❌ No team
+❌ No roadmap
+❌ No experience
+❌ No visibility
 
-1. **Add Environment Variables in Netlify:**
-   - Go to your Netlify site dashboard
-   - Navigate to Site Settings > Environment Variables
-   - Add the following variables:
+EarnBuddy exists to help you skip the guesswork and start growing with the right people around you.
 
-   ```
-   VITE_FIREBASE_API_KEY = AIzaSyDoEPIqS_9wXRnWUWP-wTR_BqWBjqFCXVs
-   VITE_FIREBASE_AUTH_DOMAIN = earnbuddy-641b3.firebaseapp.com
-   VITE_FIREBASE_PROJECT_ID = earnbuddy-641b3
-   VITE_FIREBASE_STORAGE_BUCKET = earnbuddy-641b3.firebasestorage.app
-   VITE_FIREBASE_MESSAGING_SENDER_ID = 679982634262
-   VITE_FIREBASE_APP_ID = 1:679982634262:web:ef471fa3e4f99008216c37
-   ```
+## 👥 Who It's For
 
-2. **Configure Firebase for your domain:**
-   - Go to Firebase Console > Authentication > Settings
-   - In the "Authorized domains" section, add:
-     - `spontaneous-scone-336c90.netlify.app` (your current domain)
-     - Any custom domain you plan to use
+* GenZ students exploring tech, freelancing, or startups
+* Aspiring founders looking for partners, talent, or community
+* Freelancers wanting bigger gigs or more collaboration
+* Creators, builders, and doers who hate doing things alone
 
-3. **Redeploy your site:**
-   - Trigger a new deployment in Netlify
-   - The environment variables will be available during build
+## 💡 Current Status
 
-### 🔧 Firebase Setup Checklist
+We’re in the research & early prototyping phase.
 
-- [ ] Firebase project created
-- [ ] Web app added to Firebase project
-- [ ] Environment variables added to Netlify
-- [ ] Google Authentication enabled in Firebase
-- [ ] Netlify domain added to Firebase Authorized domains
-- [ ] Firestore Database enabled
+✔️ User surveys launched
+✔️ Community forming
+🚧 MVP in development
+💬 Always open to feedback and testers
 
-### 📱 Features
+## 📬 Want to contribute, test, or partner?
 
-- **Discover**: Find opportunities and trending projects
-- **Freelance**: Connect with clients and manage projects
-- **Startups**: Join innovative startups or list your own
-- **Community**: Engage with builder communities and pods
+We’re actively looking for:
 
-### 🛠️ Tech Stack
+* Beta users
+* Mentors or advisors
+* Indie hackers, freelancers & students who resonate with this vision
 
-- React 18 with TypeScript
-- Vite for build tooling
-- Tailwind CSS for styling
-- Framer Motion for animations
-- Firebase for authentication and database
-- Netlify for deployment
+Drop us a message at:
+📧 [team@earnbuddy.in](mailto:team@earnbuddy.in) (example)
+💬 Or DM us on Twitter: @earnbuddyapp
 
-### 🔐 Authentication
-
-The app supports:
-- Google OAuth sign-in
-- Email/password authentication
-- Protected routes for authenticated users
-- User profile management
-
-### 🎨 Design System
-
-- Modern glassmorphism design
-- Dark/light theme support
-- Responsive design for all devices
-- Smooth animations and micro-interactions
-- Accessible UI components
-
-## 📄 License
-
-This project is licensed under the MIT License.
+---
