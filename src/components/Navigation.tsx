@@ -5,8 +5,10 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { GlassMorphism } from './ui/glass-morphism';
 import { GradientButton } from './ui/gradient-button';
 import ThemeToggle from './ThemeToggle';
+import { useAuth } from '../contexts/AuthContext';
 
 const Navigation: React.FC = () => {
+  const { currentUser, logout } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -32,7 +34,7 @@ const Navigation: React.FC = () => {
       });
       setActiveSection(currentSection || '');
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -76,31 +78,31 @@ const Navigation: React.FC = () => {
     <>
       <motion.nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out ${
-          isScrolled 
-            ? 'mx-4 mt-4' 
+          isScrolled
+            ? 'mx-4 mt-4'
             : ''
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
       >
-        <GlassMorphism 
+        <GlassMorphism
           intensity={isScrolled ? 'heavy' : 'light'}
           className={`${isScrolled ? 'rounded-2xl shadow-2xl' : 'rounded-none'} border-0 ${isScrolled ? 'border' : ''} border-white/20 dark:border-gray-700/20`}
         >
           <div className={`${isScrolled ? 'px-4 sm:px-8 py-4' : 'container mx-auto px-4 sm:px-8 py-6'}`}>
             <div className="flex items-center justify-between">
               {/* Logo */}
-              <motion.div 
+              <motion.div
                 className="flex items-center space-x-4 cursor-pointer"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 onClick={() => navigate('/')}
               >
                 <div className="relative group">
-                  <img 
-                    src="/logofinal.png" 
-                    alt="EarnBuddy" 
+                  <img
+                    src="/logofinal.png"
+                    alt="EarnBuddy"
                     className="w-8 h-8 sm:w-10 sm:h-10 object-contain transition-all duration-300 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-emerald-500/20 rounded-lg blur-lg animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -115,14 +117,14 @@ const Navigation: React.FC = () => {
                 {navItems.map((item, index) => {
                   const sectionId = item.href.replace('#', '');
                   const isActive = activeSection === sectionId;
-                  
+
                   return (
                     <motion.button
                       key={item.name}
                       onClick={() => scrollToSection(item.href)}
                       className={`relative px-3 xl:px-6 py-3 font-medium transition-all duration-300 ease-out rounded-xl group text-sm xl:text-base ${
-                        isActive 
-                          ? 'text-emerald-600 dark:text-emerald-400' 
+                        isActive
+                          ? 'text-emerald-600 dark:text-emerald-400'
                           : 'text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400'
                       }`}
                       whileHover={{ scale: 1.05 }}
@@ -155,6 +157,14 @@ const Navigation: React.FC = () => {
                 >
                   Join Waitlist
                 </GradientButton>
+                {currentUser && (
+                  <button
+                    onClick={logout}
+                    className="px-3 lg:px-6 py-3 text-sm lg:text-base rounded-2xl font-semibold border-2 border-emerald-500/30 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-500/10 transition-all duration-300 ml-2"
+                  >
+                    Logout
+                  </button>
+                )}
               </div>
 
               {/* Mobile Menu Button */}
@@ -195,7 +205,7 @@ const Navigation: React.FC = () => {
                 {navItems.map((item, index) => {
                   const sectionId = item.href.replace('#', '');
                   const isActive = activeSection === sectionId;
-                  
+
                   return (
                     <motion.button
                       key={item.name}
@@ -222,6 +232,7 @@ const Navigation: React.FC = () => {
                     </motion.button>
                   );
                 })}
+                {/* Mobile Auth Buttons */}
                 <div className="flex flex-col space-y-2 mt-4 mx-4">
                   <GradientButton
                     onClick={() => handleAuthClick(true)}
@@ -229,6 +240,14 @@ const Navigation: React.FC = () => {
                   >
                     Join Waitlist
                   </GradientButton>
+                  {currentUser && (
+                    <button
+                      onClick={logout}
+                      className="w-full px-4 py-3 rounded-2xl font-semibold border-2 border-emerald-500/30 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-500/10 transition-all duration-300"
+                    >
+                      Logout
+                    </button>
+                  )}
                 </div>
               </div>
             </motion.div>

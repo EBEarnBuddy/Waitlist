@@ -1,15 +1,15 @@
-import { 
-  collection, 
-  doc, 
-  addDoc, 
-  updateDoc, 
-  deleteDoc, 
-  getDoc, 
-  getDocs, 
-  query, 
-  where, 
-  orderBy, 
-  limit, 
+import {
+  collection,
+  doc,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+  orderBy,
+  limit,
   onSnapshot,
   arrayUnion,
   arrayRemove,
@@ -212,7 +212,7 @@ export class FirestoreService {
       members: arrayUnion(userId),
       memberCount: increment(1)
     });
-    
+
     // Update user profile
     await updateDoc(doc(db, 'users', userId), {
       joinedPods: arrayUnion(podId)
@@ -225,7 +225,7 @@ export class FirestoreService {
       members: arrayRemove(userId),
       memberCount: increment(-1)
     });
-    
+
     // Update user profile
     await updateDoc(doc(db, 'users', userId), {
       joinedPods: arrayRemove(podId)
@@ -284,12 +284,12 @@ export class FirestoreService {
       createdAt: serverTimestamp(),
       lastActivity: serverTimestamp()
     });
-    
+
     // Update user profile
     await updateDoc(doc(db, 'users', room.createdBy), {
       joinedRooms: arrayUnion(docRef.id)
     });
-    
+
     return docRef.id;
   }
 
@@ -310,7 +310,7 @@ export class FirestoreService {
     await updateDoc(doc(db, 'rooms', roomId), {
       members: arrayUnion(userId)
     });
-    
+
     // Update user profile
     await updateDoc(doc(db, 'users', userId), {
       joinedRooms: arrayUnion(roomId)
@@ -324,12 +324,12 @@ export class FirestoreService {
       ...message,
       timestamp: serverTimestamp()
     });
-    
+
     // Update room's last activity
     await updateDoc(doc(db, 'rooms', message.roomId), {
       lastActivity: serverTimestamp()
     });
-    
+
     return docRef.id;
   }
 
@@ -354,12 +354,12 @@ export class FirestoreService {
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp()
     });
-    
+
     // Update user profile
     await updateDoc(doc(db, 'users', startup.createdBy), {
       postedStartups: arrayUnion(docRef.id)
     });
-    
+
     return docRef.id;
   }
 
@@ -373,11 +373,11 @@ export class FirestoreService {
 
   static async applyToStartup(startupId: string, userId: string, applicationData?: { coverLetter?: string; portfolio?: string }): Promise<void> {
     if (!db) throw new Error('Firestore not initialized');
-    
+
     // Get user profile for application
     const userDoc = await getDoc(doc(db, 'users', userId));
     const userProfile = userDoc.data() as UserProfile;
-    
+
     const application: Application = {
       userId,
       appliedAt: serverTimestamp() as Timestamp,
@@ -393,13 +393,13 @@ export class FirestoreService {
         completedProjects: userProfile.completedProjects
       }
     };
-    
+
     // Update startup with application
     await updateDoc(doc(db, 'startups', startupId), {
       applicants: arrayUnion(application),
       applicantCount: increment(1)
     });
-    
+
     // Update user profile with applied startup
     await updateDoc(doc(db, 'users', userId), {
       appliedStartups: arrayUnion({
@@ -419,12 +419,12 @@ export class FirestoreService {
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp()
     });
-    
+
     // Update user profile
     await updateDoc(doc(db, 'users', gig.postedBy), {
       postedGigs: arrayUnion(docRef.id)
     });
-    
+
     return docRef.id;
   }
 
@@ -438,11 +438,11 @@ export class FirestoreService {
 
   static async applyToGig(gigId: string, userId: string, applicationData?: { coverLetter?: string; portfolio?: string }): Promise<void> {
     if (!db) throw new Error('Firestore not initialized');
-    
+
     // Get user profile for application
     const userDoc = await getDoc(doc(db, 'users', userId));
     const userProfile = userDoc.data() as UserProfile;
-    
+
     const application: Application = {
       userId,
       appliedAt: serverTimestamp() as Timestamp,
@@ -458,13 +458,13 @@ export class FirestoreService {
         completedProjects: userProfile.completedProjects
       }
     };
-    
+
     // Update gig with application
     await updateDoc(doc(db, 'gigs', gigId), {
       applicants: arrayUnion(application),
       applicantCount: increment(1)
     });
-    
+
     // Update user profile with applied gig
     await updateDoc(doc(db, 'users', userId), {
       appliedGigs: arrayUnion({
@@ -533,28 +533,28 @@ export class FirestoreService {
   static async getBookmarkedGigs(gigIds: string[]): Promise<FreelanceGig[]> {
     if (!db || gigIds.length === 0) return [];
     const gigs: FreelanceGig[] = [];
-    
+
     for (const gigId of gigIds) {
       const docSnap = await getDoc(doc(db, 'gigs', gigId));
       if (docSnap.exists()) {
         gigs.push({ id: docSnap.id, ...docSnap.data() } as FreelanceGig);
       }
     }
-    
+
     return gigs;
   }
 
   static async getBookmarkedStartups(startupIds: string[]): Promise<Startup[]> {
     if (!db || startupIds.length === 0) return [];
     const startups: Startup[] = [];
-    
+
     for (const startupId of startupIds) {
       const docSnap = await getDoc(doc(db, 'startups', startupId));
       if (docSnap.exists()) {
         startups.push({ id: docSnap.id, ...docSnap.data() } as Startup);
       }
     }
-    
+
     return startups;
   }
 

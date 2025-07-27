@@ -55,15 +55,15 @@ export const ModernFooter: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-12">
           {/* Brand Section */}
           <div className="lg:col-span-2">
-            <motion.div 
+            <motion.div
               className="flex items-center space-x-3 mb-6"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <div className="relative">
-                <img 
-                  src="/logofinal.png" 
-                  alt="EarnBuddy" 
+                <img
+                  src="/logofinal.png"
+                  alt="EarnBuddy"
                   className="w-12 h-12 object-contain"
                 />
                 <div className="absolute inset-0 bg-emerald-500/20 rounded-lg blur-lg animate-pulse"></div>
@@ -72,12 +72,12 @@ export const ModernFooter: React.FC = () => {
                 EarnBuddy
               </span>
             </motion.div>
-            
+
             <p className="text-gray-400 text-lg mb-8 max-w-md leading-relaxed">
-              Where ambitious builders come together to turn ideas into reality. 
+              Where ambitious builders come together to turn ideas into reality.
               Build. Collaborate. Earn.
             </p>
-            
+
             <div className="flex space-x-4">
               <motion.a
                 href="https://twitter.com/earnbuddy"
@@ -112,7 +112,7 @@ export const ModernFooter: React.FC = () => {
               </h3>
               <ul className="space-y-4">
                 {section.links.map((link, linkIndex) => (
-                  <motion.li 
+                  <motion.li
                     key={link.name}
                     initial={{ opacity: 0, x: -10 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -139,7 +139,7 @@ export const ModernFooter: React.FC = () => {
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
               © 2025 EarnBuddy. All rights reserved.
             </p>
-            
+
             <div className="flex items-center space-x-6 text-sm">
               <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">
                 Privacy Policy
@@ -148,14 +148,7 @@ export const ModernFooter: React.FC = () => {
                 Terms of Service
               </a>
               <div className="flex items-center space-x-2 text-gray-400">
-                <span>Made with</span>
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 1, repeat: Infinity }}
-                >
-                  <Heart className="w-4 h-4 text-red-500 fill-current" />
-                </motion.div>
-                <span>by builders, for builders</span>
+
               </div>
             </div>
           </div>
