@@ -23,7 +23,7 @@ const Navigation: React.FC = () => {
       setShowScrollTop(scrollPosition > 500);
 
       // Update active section based on scroll position
-      const sections = ['how-it-works', 'startups', 'freelancing', 'community', 'testimonials', 'faq'];
+      const sections = ['how-it-works', 'startups', 'freelancers', 'students', 'communities', 'testimonials', 'faq'];
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -40,10 +40,10 @@ const Navigation: React.FC = () => {
   }, []);
 
   const navItems = [
-    { name: 'How It Works', href: '#how-it-works' },
     { name: 'Startups', href: '#startups' },
-    { name: 'Freelancing', href: '#freelancing' },
-    { name: 'Community', href: '#community' },
+    { name: 'Freelancers', href: '#freelancers' },
+    { name: 'Students', href: '#students' },
+    { name: 'Communities', href: '#communities' },
     { name: 'Testimonials', href: '#testimonials' },
     { name: 'FAQ', href: '#faq' }
   ];

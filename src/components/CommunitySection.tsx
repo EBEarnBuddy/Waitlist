@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { MessageCircle, Zap, Lock, Trophy, Cpu, Leaf, DollarSign, Globe, Sparkles } from 'lucide-react';
+import { MessageCircle, Zap, Lock, Trophy, Cpu, Leaf, DollarSign, Globe, Sparkles, ArrowRight, Users, Building2, Handshake } from 'lucide-react';
 
-const CommunitySection: React.FC = () => {
+const CommunitiesSection: React.FC = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -39,7 +39,7 @@ const CommunitySection: React.FC = () => {
   ];
 
   return (
-    <section id="community" className="py-20 bg-white dark:bg-black relative overflow-hidden">
+    <section id="communities" className="py-20 bg-gray-50 dark:bg-black relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -61,7 +61,7 @@ const CommunitySection: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <Sparkles className="w-4 h-4 text-emerald-500" />
-            <span className="text-emerald-600 dark:text-emerald-400 font-medium">Community Driven</span>
+            <span className="text-emerald-600 dark:text-emerald-400 font-medium">Communities</span>
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800 dark:text-white">
@@ -71,7 +71,7 @@ const CommunitySection: React.FC = () => {
             </span>.
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
-            Join or create Pods around AI, Web3, Climate, Tech, Fintech and more.
+            Join or create Pods around AI, Web3, Climate, Tech, Fintech and more. Connect with builders who share your vision and drive.
           </p>
         </motion.div>
 
@@ -98,41 +98,40 @@ const CommunitySection: React.FC = () => {
                   <pod.icon className="w-6 h-6 sm:w-8 sm:h-8" />
                   <div>
                     <h3 className="font-bold text-base sm:text-lg">{pod.name}</h3>
-                    <p className="text-xs sm:text-sm opacity-90">{pod.members} builders</p>
+                    <p className="text-sm opacity-90">{pod.members} members</p>
                   </div>
                 </div>
-                <div className="absolute -top-2 -right-2 w-4 h-4 bg-white/20 rounded-full animate-ping"></div>
               </div>
             </motion.div>
           ))}
         </motion.div>
 
         {/* Features Grid */}
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-16">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {features.map((feature, index) => (
             <motion.div
               key={index}
               className="group"
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
             >
-              <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 sm:p-8 h-full relative overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:scale-105 border border-gray-100 dark:border-emerald-500/20 group-hover:border-emerald-500/40">
+              <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-emerald-500/20 h-full relative overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:scale-105 group-hover:border-emerald-500/40">
                 {/* Glow effect */}
                 <div className="absolute -inset-2 bg-gradient-to-r from-emerald-400/20 to-lime-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
                 <div className="relative z-10">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-xl flex items-center justify-center mb-4 sm:mb-6 relative">
-                    <feature.icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+                  <div className="w-12 h-12 bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-xl flex items-center justify-center mb-4 relative">
+                    <feature.icon className="w-6 h-6 text-white" />
                     <div className="absolute inset-0 bg-emerald-500/30 rounded-xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
                   </div>
                   
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-white mb-3 sm:mb-4 flex items-center gap-2">
+                  <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
                     {feature.title}
                     <Sparkles className="w-4 h-4 text-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </h3>
                   
-                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
@@ -141,9 +140,53 @@ const CommunitySection: React.FC = () => {
           ))}
         </div>
 
+        {/* Community CTA Section */}
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.8 }}
+        >
+          <div className="bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-lime-400/20"></div>
+            <div className="relative z-10">
+              <h3 className="text-3xl md:text-4xl font-bold mb-4">
+                Are you a tech community leader?
+              </h3>
+              <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
+                We're partnering with innovation communities worldwide to connect builders through our platform. Let's discuss how we can help your community grow.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <motion.a
+                  href="mailto:communities@earnbuddy.com?subject=Community Partnership Inquiry"
+                  className="group px-8 py-4 bg-white text-emerald-600 font-bold rounded-2xl flex items-center gap-2 hover:bg-emerald-50 transition-all duration-300"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span>Partner with Us</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </motion.a>
+                
+                <motion.a
+                  href="https://tally.so/r/nPN7GP"
+                  className="px-8 py-4 border-2 border-white/30 text-white font-bold rounded-2xl hover:bg-white/10 transition-all duration-300"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Join Waitlist
+                </motion.a>
+              </div>
+              
+              <p className="text-sm text-emerald-200 mt-6">
+                Free consultation • Custom integration options • Priority access for partners
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
 };
 
-export default CommunitySection;
+export default CommunitiesSection;

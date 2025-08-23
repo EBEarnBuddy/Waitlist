@@ -5,8 +5,9 @@ import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
 import HowItWorks from './components/HowItWorks';
 import StartupsSection from './components/StartupsSection';
-import FreelancingSection from './components/FreelancingSection';
-import CommunitySection from './components/CommunitySection';
+import FreelancersSection from './components/FreelancersSection';
+import StudentsSection from './components/StudentsSection';
+import CommunitiesSection from './components/CommunitySection';
 import { ModernTestimonials } from './components/ui/modern-testimonials';
 import FAQSection from './components/FAQSection';
 import { ModernFooter } from './components/ui/modern-footer';
@@ -56,8 +57,9 @@ function App() {
         <HeroSection />
         <HowItWorks />
         <StartupsSection />
-        <FreelancingSection />
-        <CommunitySection />
+        <FreelancersSection />
+        <StudentsSection />
+        <CommunitiesSection />
         <ModernTestimonials />
         <FAQSection />
       </main>

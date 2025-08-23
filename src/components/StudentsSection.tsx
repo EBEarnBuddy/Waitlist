@@ -1,0 +1,346 @@
+import React from 'react';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { GraduationCap, Building2, Users, Star, Zap, ArrowRight, Sparkles, Target, Award, Globe, CheckCircle, Rocket, Handshake } from 'lucide-react';
+
+const StudentsSection: React.FC = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const opportunities = [
+    {
+      icon: Building2,
+      title: "Hands-on Startup Experience",
+      description: "Work directly with real startups on meaningful projects",
+      details: [
+        "Internships with early-stage and funded startups",
+        "Real-world project experience with actual impact",
+        "Mentorship from experienced founders and developers",
+        "Portfolio-building opportunities for your career"
+      ]
+    },
+    {
+      icon: Users,
+      title: "Exclusive Student Network",
+      description: "Connect with top talent from India's premier institutions",
+      details: [
+        "Network with students from IIIT BHU, IITs, NITs, and more",
+        "Collaborate on projects and hackathons",
+        "Peer learning and skill development",
+        "Access to exclusive student-only opportunities"
+      ]
+    },
+    {
+      icon: Star,
+      title: "Premium Opportunities",
+      description: "Access high-quality gigs and long-term contracts",
+      details: [
+        "Curated opportunities matching your skills and interests",
+        "Competitive compensation for quality work",
+        "Flexible schedules that work with your academic commitments",
+        "Pathway to full-time roles and co-founder opportunities"
+      ]
+    }
+  ];
+
+  const partnerships = [
+    {
+      name: "IIIT BHU E-Cell",
+      description: "Official partnership for student opportunities and innovation",
+      logo: "/partners/iiit-bhu.svg"
+    },
+    {
+      name: "IIT BHU Startup Cell",
+      description: "Collaboration for startup ecosystem development",
+      logo: "/partners/iit-bhu.svg"
+    },
+    {
+      name: "NIT Student Bodies",
+      description: "Network of NIT student organizations",
+      logo: "/partners/nit-network.svg"
+    }
+  ];
+
+  const benefits = [
+    {
+      icon: Target,
+      title: "Career Acceleration",
+      description: "Build your resume with real startup experience"
+    },
+    {
+      icon: Award,
+      title: "Skill Development",
+      description: "Learn from industry experts and mentors"
+    },
+    {
+      icon: Globe,
+      title: "Global Network",
+      description: "Connect with founders and developers worldwide"
+    },
+    {
+      icon: Rocket,
+      title: "Future Opportunities",
+      description: "Pathway to internships, jobs, and co-founder roles"
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "Rahul Sharma",
+      position: "Startup Head, IIT BHU",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      quote: "EarnBuddy has transformed how our students access real-world opportunities. The quality of startups and the hands-on experience our students get is unmatched. It's exactly what the Indian startup ecosystem needed.",
+      rating: 5
+    },
+    {
+      name: "Priya Patel",
+      position: "Co-Head, IIT BHU Startup Cell",
+      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
+      quote: "The platform's focus on quality over quantity means our students work on meaningful projects that actually help their careers. The mentorship and networking opportunities are invaluable.",
+      rating: 5
+    }
+  ];
+
+  return (
+    <section id="students" className="py-20 bg-white dark:bg-black relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-10 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-emerald-400/5 rounded-full blur-3xl animate-pulse"></div>
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        <motion.div
+          ref={ref}
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.div
+            className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full mb-6"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <GraduationCap className="w-4 h-4 text-emerald-500" />
+            <span className="text-emerald-600 dark:text-emerald-400 font-medium">For Students</span>
+          </motion.div>
+
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800 dark:text-white">
+            Launch your career with{' '}
+            <span className="text-emerald-600 dark:text-emerald-400">
+              real startup experience
+            </span>
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
+            We've been collecting the top talents from India's premier institutions. Get exclusive access to internships, gigs, and long-term contracts that will accelerate your career like no other platform.
+          </p>
+        </motion.div>
+
+        {/* Opportunities Grid */}
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          {opportunities.map((opportunity, index) => (
+            <motion.div
+              key={index}
+              className="group relative"
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+            >
+              <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-emerald-500/20 h-full relative overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:scale-105 group-hover:border-emerald-500/40">
+                {/* Glow effect */}
+                <div className="absolute -inset-2 bg-gradient-to-r from-emerald-400/20 to-lime-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-xl flex items-center justify-center mb-6 relative">
+                    <opportunity.icon className="w-8 h-8 text-white" />
+                    <div className="absolute inset-0 bg-emerald-500/30 rounded-xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
+                    <Sparkles className="w-5 h-5 text-emerald-500" />
+                    {opportunity.title}
+                  </h3>
+                  
+                  <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                    {opportunity.description}
+                  </p>
+
+                  <ul className="space-y-3">
+                    {opportunity.details.map((detail, idx) => (
+                      <li key={idx} className="flex items-start space-x-3">
+                        <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-700 dark:text-gray-300">{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Institutional Partnerships */}
+        <motion.div
+          className="mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          <h3 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">
+            Partnering with India's top institutions
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {partnerships.map((partner, index) => (
+              <motion.div
+                key={index}
+                className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-emerald-500/20 text-center"
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="w-16 h-16 bg-emerald-500/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Building2 className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
+                </div>
+                <h4 className="font-bold text-gray-800 dark:text-white mb-2">{partner.name}</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{partner.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Benefits Section */}
+        <motion.div
+          className="mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.8 }}
+        >
+          <h3 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">
+            Why students choose EarnBuddy
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {benefits.map((benefit, index) => (
+              <motion.div
+                key={index}
+                className="text-center p-6 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-xl border border-gray-200/50 dark:border-gray-700/50"
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <benefit.icon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                </div>
+                <h4 className="font-semibold text-gray-800 dark:text-white mb-2">{benefit.title}</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{benefit.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Testimonials */}
+        <motion.div
+          className="mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 1.0 }}
+        >
+          <h3 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">
+            What our institutional partners say
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-emerald-500/20"
+                whileHover={{ scale: 1.02, y: -5 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <img
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    className="w-16 h-16 rounded-full object-cover"
+                  />
+                  <div>
+                    <h4 className="font-bold text-gray-800 dark:text-white">{testimonial.name}</h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">{testimonial.position}</p>
+                    <div className="flex items-center gap-1 mt-1">
+                      {Array.from({ length: testimonial.rating }).map((_, i) => (
+                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <blockquote className="text-gray-700 dark:text-gray-300 italic leading-relaxed">
+                  "{testimonial.quote}"
+                </blockquote>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* CTA Section */}
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 1.2 }}
+        >
+          <div className="bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-lime-400/20"></div>
+            <div className="relative z-10">
+              <h3 className="text-3xl md:text-4xl font-bold mb-4">
+                Ready to accelerate your career?
+              </h3>
+              <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
+                Join 1,247+ students from top institutions already building their future with EarnBuddy.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                <motion.a
+                  href="https://tally.so/r/nPN7GP"
+                  className="group px-8 py-4 bg-white text-emerald-600 font-bold rounded-2xl flex items-center gap-2 hover:bg-emerald-50 transition-all duration-300"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span>Join as Student</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </motion.a>
+                
+                <motion.a
+                  href="mailto:partnerships@earnbuddy.com?subject=Student Organization Partnership"
+                  className="px-8 py-4 border-2 border-white/30 text-white font-bold rounded-2xl hover:bg-white/10 transition-all duration-300"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Partner Your Organization
+                </motion.a>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <motion.a
+                  href="mailto:students@earnbuddy.com?subject=Student Partnership Inquiry"
+                  className="group px-6 py-3 bg-emerald-700 text-white font-medium rounded-xl flex items-center gap-2 hover:bg-emerald-600 transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Handshake className="w-4 h-4" />
+                  <span>Reach Out to Us</span>
+                </motion.a>
+              </div>
+              
+              <p className="text-sm text-emerald-200 mt-6">
+                Free consultation • No commitment required • Response within 24 hours
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default StudentsSection;

@@ -1,42 +1,71 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Users, GraduationCap, DollarSign, ArrowRight, Sparkles, Zap } from 'lucide-react';
+import { Users, GraduationCap, DollarSign, ArrowRight, Sparkles, Zap, Building2, Target, Rocket, Handshake, Award, TrendingUp } from 'lucide-react';
 
 const StartupsSection: React.FC = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const pillars = [
+  const services = [
     {
       icon: Users,
-      title: "Collab",
-      description: "List your startup. Let aligned builders apply to join your vision.",
+      title: "Co-founder Matching",
+      description: "Find the perfect co-founder with complementary skills and aligned vision",
       features: [
-        "Share your story, vision, needs",
-        "Receive filtered requests based on builder goals",
-        "Host intro calls and co-founder discovery sprints"
-      ]
+        "AI-powered matching based on skills, experience, and goals",
+        "Verified profiles with detailed background checks",
+        "Structured co-founder discovery process",
+        "Legal framework templates for equity splits"
+      ],
+      color: "emerald"
     },
     {
-      icon: GraduationCap,
-      title: "Mentorship",
-      description: "Tap into curated 1:1 and group mentorship.",
+      icon: Building2,
+      title: "Talent Acquisition",
+      description: "Build your dream team with pre-vetted, high-potential talent",
       features: [
-        "Topics: fundraising, GTM, compliance, hiring & more",
-        "Book office hours with real experts",
-        "Community-vetted mentors only"
-      ]
+        "Access to 2,847+ verified builders and developers",
+        "Student talent from top institutions (IIIT BHU, IITs, NITs)",
+        "Freelancers ready for long-term commitments",
+        "Skill-based filtering and portfolio reviews"
+      ],
+      color: "blue"
     },
     {
-      icon: DollarSign,
-      title: "Funding & Incubation",
-      description: "Access early-stage capital and guidance.",
+      icon: Rocket,
+      title: "Growth & Mentorship",
+      description: "Accelerate your startup with expert guidance and resources",
       features: [
-        "Discover VCs and incubators accepting pitches",
-        "Apply with your EarnBuddy profile",
-        "See who's viewed your application and request intros"
-      ]
+        "1:1 mentorship from successful founders and VCs",
+        "Access to our network of investors and accelerators",
+        "Workshop series on fundraising, GTM, and scaling",
+        "Community-driven feedback and validation"
+      ],
+      color: "purple"
+    }
+  ];
+
+  const benefits = [
+    {
+      icon: Target,
+      title: "Faster Time to Market",
+      description: "Reduce hiring time by 70% with our pre-vetted talent pool"
+    },
+    {
+      icon: Handshake,
+      title: "Long-term Partnerships",
+      description: "Build lasting relationships, not just one-off hires"
+    },
+    {
+      icon: Award,
+      title: "Quality Assurance",
+      description: "Every candidate is verified and skill-tested"
+    },
+    {
+      icon: TrendingUp,
+      title: "Scalable Growth",
+      description: "Scale your team as you grow with flexible engagement models"
     }
   ];
 
@@ -67,18 +96,19 @@ const StartupsSection: React.FC = () => {
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800 dark:text-white">
-            Startup support built for{' '}
+            Build your startup with{' '}
             <span className="text-emerald-600 dark:text-emerald-400">
-              momentum
-            </span>, not noise.
+              world-class talent
+            </span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
-            From finding co-builders to accessing mentorship and VCs, the Startup Hub powers every stage of your journey.
+            From finding co-founders to building your dream team, we provide everything you need to scale your startup from idea to unicorn.
           </p>
         </motion.div>
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          {pillars.map((pillar, index) => (
+        {/* Services Grid */}
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          {services.map((service, index) => (
             <motion.div
               key={index}
               className="group relative"
@@ -91,31 +121,26 @@ const StartupsSection: React.FC = () => {
                 <div className="absolute -inset-2 bg-gradient-to-r from-emerald-400/20 to-lime-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
                 <div className="relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-xl flex items-center justify-center mb-6 relative">
-                    <pillar.icon className="w-8 h-8 text-white" />
+                  <div className={`w-16 h-16 bg-gradient-to-r from-${service.color}-600 to-${service.color}-500 rounded-xl flex items-center justify-center mb-6 relative`}>
+                    <service.icon className="w-8 h-8 text-white" />
                     <div className="absolute inset-0 bg-emerald-500/30 rounded-xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
                   </div>
                   
                   <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
                     <Sparkles className="w-5 h-5 text-emerald-500" />
-                    {pillar.title}
+                    {service.title}
                   </h3>
                   
-                  <p className="text-gray-600 dark:text-gray-400 mb-6 text-lg">
-                    {pillar.description}
+                  <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                    {service.description}
                   </p>
-                  
-                  <ul className="space-y-3">
-                    {pillar.features.map((feature, featureIndex) => (
-                      <motion.li 
-                        key={featureIndex} 
-                        className="flex items-start space-x-3 group/item"
-                        whileHover={{ x: 5 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <ArrowRight className="w-4 h-4 text-emerald-600 mt-1 flex-shrink-0 group-hover/item:translate-x-1 transition-transform" />
-                        <span className="text-gray-700 dark:text-gray-300 group-hover/item:text-emerald-600 dark:group-hover/item:text-emerald-400 transition-colors">{feature}</span>
-                      </motion.li>
+
+                  <ul className="space-y-3 mb-6">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-gray-700 dark:text-gray-300 text-sm">{feature}</span>
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -124,48 +149,78 @@ const StartupsSection: React.FC = () => {
           ))}
         </div>
 
-        {/* CTA Buttons */}
+        {/* Benefits Section */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
+          <h3 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">
+            Why startups choose EarnBuddy
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {benefits.map((benefit, index) => (
+              <motion.div
+                key={index}
+                className="text-center p-6 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-200/50 dark:border-gray-700/50"
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <benefit.icon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                </div>
+                <h4 className="font-semibold text-gray-800 dark:text-white mb-2">{benefit.title}</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{benefit.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* CTA Section */}
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.8 }}
+        >
+          <div className="bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-lime-400/20"></div>
+            <div className="relative z-10">
+              <h3 className="text-3xl md:text-4xl font-bold mb-4">
+                Ready to build your dream team?
+              </h3>
+              <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
+                Join 156+ startups already building with EarnBuddy. Get early access to our exclusive startup program.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <motion.a
-            href="/beta"
-            className="group relative px-8 py-4 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-semibold rounded-2xl overflow-hidden"
-            whileHover={{ scale: 1.05 }}
+                  href="mailto:startups@earnbuddy.com?subject=Startup Partnership Inquiry"
+                  className="group px-8 py-4 bg-white text-emerald-600 font-bold rounded-2xl flex items-center gap-2 hover:bg-emerald-50 transition-all duration-300"
+                  whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <span className="flex items-center space-x-2 relative z-10">
-              <span>List Your Startup</span>
+                  <span>Partner with Us</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </span>
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-lime-400"
-              initial={{ x: "-100%" }}
-              whileHover={{ x: "0%" }}
-              transition={{ duration: 0.3 }}
-            />
-            <div className="absolute inset-0 bg-emerald-500/30 blur-xl group-hover:blur-2xl transition-all duration-300"></div>
           </motion.a>
           
           <motion.a
-            href="/beta"
-            className="px-8 py-4 border-2 border-emerald-500/30 text-emerald-700 dark:text-emerald-400 font-semibold rounded-2xl hover:bg-emerald-500/10 transition-all duration-300 relative overflow-hidden group"
-            whileHover={{ scale: 1.05 }}
+                  href="https://tally.so/r/nPN7GP"
+                  className="px-8 py-4 border-2 border-white/30 text-white font-bold rounded-2xl hover:bg-white/10 transition-all duration-300"
+                  whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            <span className="relative z-10">Browse Other Startups</span>
-            <motion.div
-              className="absolute inset-0 bg-emerald-500/5"
-              initial={{ scale: 0 }}
-              whileHover={{ scale: 1 }}
-              transition={{ duration: 0.3 }}
-            />
+                >
+                  Join Waitlist
           </motion.a>
+              </div>
+              
+              <p className="text-sm text-emerald-200 mt-6">
+                Free consultation • No commitment required • Response within 24 hours
+              </p>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

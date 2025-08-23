@@ -14,7 +14,6 @@ import {
   CheckCircle,
   Linkedin,
   Send,
-  Play,
   Award,
   TrendingUp,
   Zap,
@@ -137,87 +136,87 @@ const DiscoverPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-black relative overflow-hidden">
       {/* Profile Dropdown */}
-      <div className="fixed top-6 right-6 z-50">
+      <div className="fixed top-4 right-4 z-50">
         <div className="relative">
           <motion.button
             onClick={() => setShowProfileDropdown(!showProfileDropdown)}
-            className="flex items-center gap-3 p-3 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border-2 border-emerald-500/30 dark:border-emerald-400/30 rounded-full shadow-xl hover:shadow-2xl hover:border-emerald-500/60 transition-all duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-2 p-2 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-emerald-500/20 dark:border-emerald-400/20 rounded-xl shadow-lg hover:shadow-xl hover:border-emerald-500/40 transition-all duration-300"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
             <img
               src={userProfile?.photoURL || currentUser?.photoURL || "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face"}
               alt="Profile"
-              className="w-12 h-12 rounded-full object-cover border-2 border-emerald-500/40"
+              className="w-8 h-8 rounded-lg object-cover border border-emerald-500/30"
             />
-            <div className="hidden sm:flex items-center gap-2">
+            <div className="hidden sm:flex items-center gap-1">
               <div className="text-left">
-                <p className="text-sm font-semibold text-gray-800 dark:text-white">
+                <p className="text-xs font-medium text-gray-800 dark:text-white">
                   {(userProfile?.displayName || currentUser?.displayName || 'Builder').split(' ')[0]}
                 </p>
                 <p className="text-xs text-emerald-600 dark:text-emerald-400">
-                  Waitlist Member
+                  Waitlist
                 </p>
               </div>
-              <ChevronDown className={`w-4 h-4 text-gray-600 dark:text-gray-400 transition-transform duration-200 ${showProfileDropdown ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-3 h-3 text-gray-600 dark:text-gray-400 transition-transform duration-200 ${showProfileDropdown ? 'rotate-180' : ''}`} />
             </div>
             <div className="sm:hidden">
-              <ChevronDown className={`w-4 h-4 text-gray-600 dark:text-gray-400 transition-transform duration-200 ${showProfileDropdown ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-3 h-3 text-gray-600 dark:text-gray-400 transition-transform duration-200 ${showProfileDropdown ? 'rotate-180' : ''}`} />
             </div>
           </motion.button>
 
           <AnimatePresence>
             {showProfileDropdown && (
               <motion.div
-                className="absolute top-full right-0 mt-3 w-80 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-2 border-emerald-500/20 dark:border-emerald-400/20 rounded-2xl shadow-2xl overflow-hidden"
-                initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                className="absolute top-full right-0 mt-2 w-72 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-emerald-500/20 dark:border-emerald-400/20 rounded-xl shadow-xl overflow-hidden"
+                initial={{ opacity: 0, y: -8, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                exit={{ opacity: 0, y: -8, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
               >
                 {/* Profile Details */}
-                <div className="p-6 border-b border-emerald-500/20 dark:border-emerald-400/20 bg-gradient-to-r from-emerald-50/50 to-lime-50/50 dark:from-emerald-900/20 dark:to-lime-900/20">
-                  <div className="flex items-center gap-4 mb-4">
+                <div className="p-4 border-b border-emerald-500/10 dark:border-emerald-400/10 bg-gradient-to-r from-emerald-50/30 to-lime-50/30 dark:from-emerald-900/10 dark:to-lime-900/10">
+                  <div className="flex items-center gap-3 mb-3">
                     <img
                       src={userProfile?.photoURL || currentUser?.photoURL || "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face"}
                       alt="Profile"
-                      className="w-16 h-16 rounded-full object-cover border-3 border-emerald-500/50 shadow-lg"
+                      className="w-12 h-12 rounded-lg object-cover border border-emerald-500/30 shadow-sm"
                     />
-                    <div className="flex-1">
-                      <h3 className="text-lg font-bold text-gray-800 dark:text-white">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-sm font-semibold text-gray-800 dark:text-white truncate">
                         {userProfile?.displayName || currentUser?.displayName || 'Builder'}
                       </h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 break-all">
+                      <p className="text-xs text-gray-600 dark:text-gray-400 truncate">
                         {userProfile?.email || currentUser?.email}
                       </p>
-                      <div className="mt-2">
-                        <span className="inline-flex items-center gap-1 px-2 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-xs font-medium rounded-full">
+                      <div className="mt-1">
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-xs font-medium rounded-full">
                           <CheckCircle className="w-3 h-3 text-emerald-600" />
-                          Waitlist Member
+                          Member
                         </span>
                       </div>
                     </div>
                   </div>
                   
                   {userProfile?.bio && (
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                    <p className="text-xs text-gray-600 dark:text-gray-400 mb-2 line-clamp-2">
                       {userProfile.bio}
                     </p>
                   )}
                   
                   {userProfile?.skills && userProfile.skills.length > 0 && (
                     <div className="flex flex-wrap gap-1">
-                      {userProfile.skills.slice(0, 3).map((skill, index) => (
+                      {userProfile.skills.slice(0, 2).map((skill, index) => (
                         <span
                           key={index}
-                          className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-full"
+                          className="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-md"
                         >
                           {skill}
                         </span>
                       ))}
-                      {userProfile.skills.length > 3 && (
-                        <span className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-full">
-                          +{userProfile.skills.length - 3} more
+                      {userProfile.skills.length > 2 && (
+                        <span className="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-md">
+                          +{userProfile.skills.length - 2}
                         </span>
                       )}
                     </div>
@@ -225,37 +224,37 @@ const DiscoverPage: React.FC = () => {
                 </div>
 
                 {/* Menu Options */}
-                <div className="p-2">
+                <div className="p-1">
                   <motion.button
                     onClick={() => {
                       setShowProfileDropdown(false);
                       // TODO: Navigate to profile details page when implemented
                       console.log('View Profile Details clicked');
                     }}
-                    className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-emerald-50 dark:hover:bg-emerald-900/20 rounded-xl transition-colors group"
-                    whileHover={{ x: 5 }}
+                    className="w-full flex items-center gap-3 px-3 py-2 text-left hover:bg-emerald-50 dark:hover:bg-emerald-900/20 rounded-lg transition-colors group"
+                    whileHover={{ x: 3 }}
                   >
-                    <div className="w-10 h-10 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center group-hover:bg-emerald-200 dark:group-hover:bg-emerald-800/50 transition-colors">
-                      <User className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                    <div className="w-8 h-8 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center group-hover:bg-emerald-200 dark:group-hover:bg-emerald-800/50 transition-colors">
+                      <User className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                     </div>
                     <div>
-                      <p className="font-medium text-gray-800 dark:text-white">View Profile Details</p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">Manage your profile and settings</p>
+                      <p className="text-sm font-medium text-gray-800 dark:text-white">Profile Details</p>
+                      <p className="text-xs text-gray-600 dark:text-gray-400">Manage settings</p>
                     </div>
                   </motion.button>
 
                   <motion.div
-                    className="px-4 py-3 border-t border-emerald-500/20 dark:border-emerald-400/20"
-                    whileHover={{ x: 5 }}
+                    className="px-3 py-2 border-t border-emerald-500/10 dark:border-emerald-400/10"
+                    whileHover={{ x: 3 }}
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center">
-                          <Sun className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                        <div className="w-8 h-8 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center">
+                          <Sun className="w-4 h-4 text-gray-600 dark:text-gray-400" />
                         </div>
                         <div>
-                          <p className="font-medium text-gray-800 dark:text-white">Theme</p>
-                          <p className="text-sm text-gray-600 dark:text-gray-400">Switch between light and dark mode</p>
+                          <p className="text-sm font-medium text-gray-800 dark:text-white">Theme</p>
+                          <p className="text-xs text-gray-600 dark:text-gray-400">Light/Dark mode</p>
                         </div>
                       </div>
                       <ThemeToggle />
@@ -267,15 +266,15 @@ const DiscoverPage: React.FC = () => {
                       setShowProfileDropdown(false);
                       handleLogout();
                     }}
-                    className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl transition-colors group mt-1"
-                    whileHover={{ x: 5 }}
+                    className="w-full flex items-center gap-3 px-3 py-2 text-left hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors group"
+                    whileHover={{ x: 3 }}
                   >
-                    <div className="w-10 h-10 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center group-hover:bg-red-200 dark:group-hover:bg-red-800/50 transition-colors">
-                      <LogOut className="w-5 h-5 text-red-600 dark:text-red-400" />
+                    <div className="w-8 h-8 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center group-hover:bg-red-200 dark:group-hover:bg-red-800/50 transition-colors">
+                      <LogOut className="w-4 h-4 text-red-600 dark:text-red-400" />
                     </div>
                     <div>
-                      <p className="font-medium text-gray-800 dark:text-white">Log Out</p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">Return to the main site</p>
+                      <p className="text-sm font-medium text-gray-800 dark:text-white">Log Out</p>
+                      <p className="text-xs text-gray-600 dark:text-gray-400">Return to main site</p>
                     </div>
                   </motion.button>
                 </div>
@@ -346,87 +345,13 @@ const DiscoverPage: React.FC = () => {
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto px-4">
             Welcome, {userProfile?.displayName || currentUser?.displayName || 'Builder'}! 
-            Here's what's happening in the EarnBuddy ecosystem.
+            Congratulations on being part of the change!
           </p>
         </motion.div>
 
-        {/* Demo Video Section */}
-        <motion.section
-          className="mb-16 sm:mb-20"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <div className="text-center mb-8 sm:mb-12">
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-4 flex items-center justify-center gap-2">
-              <Play className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-500" />
-              See EarnBuddy in Action
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4">
-              Watch how builders are already collaborating and earning together
-            </p>
-          </div>
 
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              className="relative bg-white dark:bg-gray-900 rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-xl border border-gray-100 dark:border-emerald-500/20 overflow-hidden"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="aspect-video bg-gradient-to-br from-emerald-100 to-lime-100 dark:from-emerald-900/20 dark:to-lime-900/20 rounded-xl sm:rounded-2xl flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-lime-500/10"></div>
-                <motion.button
-                  className="relative z-10 w-16 h-16 sm:w-20 sm:h-20 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <Play className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-600 ml-1" />
-                </motion.button>
-                <div className="absolute bottom-4 left-4 text-sm sm:text-base font-medium text-gray-700 dark:text-gray-300">
-                  Demo Video Coming Soon
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </motion.section>
 
-        {/* Partners Section */}
-        <motion.section
-          className="mb-16 sm:mb-20"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          <div className="text-center mb-8 sm:mb-12">
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-4 flex items-center justify-center gap-2">
-              <Award className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-500" />
-              Our Partners
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4">
-              Working with industry leaders to bring you the best collaboration experience
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 max-w-6xl mx-auto">
-            {partners.map((partner, index) => (
-              <motion.div
-                key={index}
-                className="bg-white dark:bg-gray-900 rounded-xl p-4 shadow-lg border border-gray-100 dark:border-emerald-500/20 text-center hover:border-emerald-500/40 transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 + index * 0.05 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-              >
-                <div className="text-2xl mb-2">{partner.logo}</div>
-                <h4 className="font-bold text-gray-800 dark:text-white text-sm mb-1">{partner.name}</h4>
-                <p className="text-xs text-gray-600 dark:text-gray-400">{partner.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Recent Add-ons Section */}
-
+        
 
         {/* Survey Section */}
         <motion.section
