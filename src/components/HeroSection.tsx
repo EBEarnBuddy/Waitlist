@@ -281,89 +281,11 @@ const HeroSection: React.FC = () => {
                 />
               </motion.a>
             </motion.div>
-
-            {/* Animated Counters */}
-            <motion.div
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12 max-w-4xl mx-auto"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              {[
-                { icon: GraduationCap, label: "Students", value: 1247, suffix: "+" },
-                { icon: Building2, label: "Startups", value: 156, suffix: "" },
-                { icon: Users, label: "Freelancers", value: 892, suffix: "+" },
-                { icon: Globe, label: "Partnerships", value: 23, suffix: "" }
-              ].map((stat, idx) => (
-                <motion.div
-                  key={idx}
-                  className="text-center p-4 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50"
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <stat.icon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                  </div>
-                  <div className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-1">
-                    <AnimatedCounter end={stat.value} suffix={stat.suffix} />
-                  </div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">{stat.label}</div>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            {/* Enhanced User Avatars Stack */}
-            <motion.div
-              className="flex flex-col items-center gap-2 sm:gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-            >
-              <div className="flex items-center -space-x-2">
-                {/* Sample user avatars */}
-                <img
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face"
-                  alt="User"
-                  className="w-7 h-7 xs:w-8 xs:h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white dark:border-gray-900 shadow-lg"
-                />
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face"
-                  alt="User"
-                  className="w-7 h-7 xs:w-8 xs:h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white dark:border-gray-900 shadow-lg"
-                />
-                <img
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face"
-                  alt="User"
-                  className="w-7 h-7 xs:w-8 xs:h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white dark:border-gray-900 shadow-lg"
-                />
-                <img
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=40&h=40&fit=crop&crop=face"
-                  alt="User"
-                  className="w-7 h-7 xs:w-8 xs:h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white dark:border-gray-900 shadow-lg"
-                />
-                <img
-                  src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=40&h=40&fit=crop&crop=face"
-                  alt="User"
-                  className="w-7 h-7 xs:w-8 xs:h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white dark:border-gray-900 shadow-lg"
-                />
-                <img
-                  src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=40&h=40&fit=crop&crop=face"
-                  alt="User"
-                  className="w-7 h-7 xs:w-8 xs:h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white dark:border-gray-900 shadow-lg"
-                />
-                <div className="w-7 h-7 xs:w-8 xs:h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white dark:border-gray-900 shadow-lg bg-emerald-500 flex items-center justify-center text-white text-xs xs:text-sm font-bold">
-                  +2.4k
-                </div>
-              </div>
-              <p className="text-gray-600 dark:text-gray-400 text-xs xs:text-sm font-medium">
-                Join <AnimatedCounter end={2847} />+ builders already on the waitlist
-              </p>
-            </motion.div>
-          </motion.div>
-
-
+      </motion.div>
+        
         </div>
       </div>
+
 
       {/* Bottom Fade */}
       <div className="absolute bottom-0 left-0 right-0 h-12 sm:h-20 md:h-32 bg-gradient-to-t from-white dark:from-black to-transparent pointer-events-none"></div>

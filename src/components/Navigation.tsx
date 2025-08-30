@@ -44,7 +44,7 @@ const Navigation: React.FC = () => {
     { name: 'Freelancers', href: '#freelancers' },
     { name: 'Students', href: '#students' },
     { name: 'Communities', href: '#communities' },
-    { name: 'Testimonials', href: '#testimonials' },
+    { name: 'Testimonials', href: '#modern-testimonials' },
     { name: 'FAQ', href: '#faq' }
   ];
 
@@ -134,15 +134,10 @@ const Navigation: React.FC = () => {
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                     >
                       {item.name}
-                      {isActive && (
-                        <motion.div
-                          className="absolute bottom-0 left-0 right-0 h-0.5 bg-emerald-500 rounded-full shadow-lg shadow-emerald-500/50"
-                          layoutId="activeSection"
-                          initial={{ opacity: 0, scaleX: 0 }}
-                          animate={{ opacity: 1, scaleX: 1 }}
-                          transition={{ duration: 0.3 }}
-                        />
-                      )}
+                        {isActive && (
+                          <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-emerald-500 rounded-full shadow-lg shadow-emerald-500/50 transition-all duration-300 scale-x-100" />
+                        )}
+
                     </motion.button>
                   );
                 })}
@@ -191,9 +186,11 @@ const Navigation: React.FC = () => {
 
             {/* Mobile Menu */}
             <motion.div
-              className={`lg:hidden overflow-hidden ${
-                isMobileMenuOpen ? 'max-h-96' : 'max-h-0'
-              }`}
+  className={`lg:hidden overflow-hidden transition-all duration-300 ${
+    isMobileMenuOpen ? 'max-h-screen' : 'max-h-0'
+  }`}
+  style={{ willChange: 'max-height' }}
+
               initial={false}
               animate={{
                 height: isMobileMenuOpen ? 'auto' : 0,
@@ -222,12 +219,7 @@ const Navigation: React.FC = () => {
                     >
                       {item.name}
                       {isActive && (
-                        <motion.div
-                          className="w-full h-0.5 bg-emerald-500 rounded-full mt-2 shadow-lg shadow-emerald-500/50"
-                          initial={{ scaleX: 0 }}
-                          animate={{ scaleX: 1 }}
-                          transition={{ duration: 0.3 }}
-                        />
+                        <div className="w-full h-0.5 bg-emerald-500 rounded-full mt-2 shadow-lg shadow-emerald-500/50 transition-all duration-300 scale-x-100" />
                       )}
                     </motion.button>
                   );

@@ -8,7 +8,7 @@ import StartupsSection from './components/StartupsSection';
 import FreelancersSection from './components/FreelancersSection';
 import StudentsSection from './components/StudentsSection';
 import CommunitiesSection from './components/CommunitySection';
-import { ModernTestimonials } from './components/ui/modern-testimonials';
+import { ModernTestimonials } from './components/modern-testimonials';
 import FAQSection from './components/FAQSection';
 import { ModernFooter } from './components/ui/modern-footer';
 import { motion } from 'framer-motion';

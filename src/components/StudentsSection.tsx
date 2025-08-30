@@ -282,63 +282,7 @@ const StudentsSection: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* CTA Section */}
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1.2 }}
-        >
-          <div className="bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-lime-400/20"></div>
-            <div className="relative z-10">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                Ready to accelerate your career?
-              </h3>
-              <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
-                Join 1,247+ students from top institutions already building their future with EarnBuddy.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                <motion.a
-                  href="https://tally.so/r/nPN7GP"
-                  className="group px-8 py-4 bg-white text-emerald-600 font-bold rounded-2xl flex items-center gap-2 hover:bg-emerald-50 transition-all duration-300"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span>Join as Student</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </motion.a>
-                
-                <motion.a
-                  href="mailto:partnerships@earnbuddy.com?subject=Student Organization Partnership"
-                  className="px-8 py-4 border-2 border-white/30 text-white font-bold rounded-2xl hover:bg-white/10 transition-all duration-300"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Partner Your Organization
-                </motion.a>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <motion.a
-                  href="mailto:students@earnbuddy.com?subject=Student Partnership Inquiry"
-                  className="group px-6 py-3 bg-emerald-700 text-white font-medium rounded-xl flex items-center gap-2 hover:bg-emerald-600 transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Handshake className="w-4 h-4" />
-                  <span>Reach Out to Us</span>
-                </motion.a>
-              </div>
-              
-              <p className="text-sm text-emerald-200 mt-6">
-                Free consultation • No commitment required • Response within 24 hours
-              </p>
-            </div>
-          </div>
-        </motion.div>
-      </div>
+        </div>
     </section>
   );
 };

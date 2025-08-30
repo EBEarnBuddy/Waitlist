@@ -351,7 +351,7 @@ const DiscoverPage: React.FC = () => {
 
 
 
-        
+
 
         {/* Survey Section */}
         <motion.section
