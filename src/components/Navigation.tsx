@@ -44,7 +44,7 @@ const Navigation: React.FC = () => {
     { name: 'Freelancers', href: '#freelancers' },
     { name: 'Students', href: '#students' },
     { name: 'Communities', href: '#communities' },
-    { name: 'Testimonials', href: '#modern-testimonials' },
+    { name: 'Testimonials', href: '#testimonials' },
     { name: 'FAQ', href: '#faq' }
   ];
 
