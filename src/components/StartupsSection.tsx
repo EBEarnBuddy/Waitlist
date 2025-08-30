@@ -13,7 +13,6 @@ const StartupsSection: React.FC = () => {
       title: "Co-founder Matching",
       description: "Find the perfect co-founder with complementary skills and aligned vision",
       features: [
-        "AI-powered matching based on skills, experience, and goals",
         "Verified profiles with detailed background checks",
         "Structured co-founder discovery process",
         "Legal framework templates for equity splits"
@@ -25,8 +24,7 @@ const StartupsSection: React.FC = () => {
       title: "Talent Acquisition",
       description: "Build your dream team with pre-vetted, high-potential talent",
       features: [
-        "Access to 2,847+ verified builders and developers",
-        "Student talent from top institutions (IIIT BHU, IITs, NITs)",
+        "Student talent from top institutions",
         "Freelancers ready for long-term commitments",
         "Skill-based filtering and portfolio reviews"
       ],
@@ -127,7 +125,6 @@ const StartupsSection: React.FC = () => {
                   </div>
                   
                   <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
-                    <Sparkles className="w-5 h-5 text-emerald-500" />
                     {service.title}
                   </h3>
                   
