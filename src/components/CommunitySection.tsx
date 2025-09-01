@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { MessageCircle, Zap, Lock, Trophy, Cpu, Leaf, DollarSign, Globe, Sparkles, ArrowRight, Users, Building2, Handshake } from 'lucide-react';
+import { MessageCircle, Zap, Lock, Trophy, Cpu, Leaf, DollarSign, Globe, Sparkles,HandshakeIcon, ArrowRight, Users, Building2, Handshake } from 'lucide-react';
 
 const CommunitiesSection: React.FC = () => {
   const ref = useRef(null);
@@ -33,9 +33,9 @@ const CommunitiesSection: React.FC = () => {
   const pods = [
     { icon: Cpu, name: "AI", color: "from-blue-500 to-purple-600"},
     { icon: Globe, name: "Web3", color: "from-purple-500 to-pink-600" },
-    { icon: Leaf, name: "Climate", color: "from-green-500 to-emerald-600" },
+    { icon: HandshakeIcon, name: "Startups", color: "from-blue-600 to-indigo-700" },
     { icon: Zap, name: "Tech", color: "from-yellow-500 to-orange-600" },
-    { icon: DollarSign, name: "Fintech", color: "from-emerald-500 to-emerald-600" }
+    { icon: DollarSign, name: "Finance", color: "from-emerald-500 to-emerald-600" }
   ];
 
   return (
@@ -65,13 +65,13 @@ const CommunitiesSection: React.FC = () => {
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800 dark:text-white">
-            Creator-led pods. Built for real{' '}
+            Built for real{' '}
             <span className="text-emerald-600 dark:text-emerald-400">
               momentum
             </span>.
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
-            Join or create Pods around AI, Web3, Climate, Tech, Fintech and more. Connect with builders who share your vision and drive.
+            Join Pods around AI, Web3, Startups, Tech, Finance and more, Or Create rooms to connect with builders who share your vision and drive.
           </p>
         </motion.div>
 
@@ -168,7 +168,7 @@ const CommunitiesSection: React.FC = () => {
                 </motion.a>
                 
                 <motion.a
-                  href="https://tally.so/r/nPN7GP"
+                  href="/discover"
                   className="px-8 py-4 border-2 border-white/30 text-white font-bold rounded-2xl hover:bg-white/10 transition-all duration-300"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
