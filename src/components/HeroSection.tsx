@@ -235,7 +235,7 @@ const HeroSection: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               The revolutionary platform where GenZ builders, freelancers, and startup founders connect to create the future. 
-              <span className="text-emerald-600 dark:text-emerald-400 font-semibold"> Join 2,847+ innovators</span> already building tomorrow.
+              <span className="text-emerald-600 dark:text-emerald-400 font-semibold"> Join 100+ innovators</span> already building tomorrow.
             </motion.p>
 
             {/* Enhanced CTA Buttons */}

@@ -40,11 +40,11 @@ const Navigation: React.FC = () => {
   }, []);
 
   const navItems = [
+    { name: 'How It Works', href: '#how-it-works' },
     { name: 'Startups', href: '#startups' },
     { name: 'Freelancers', href: '#freelancers' },
     { name: 'Students', href: '#students' },
     { name: 'Communities', href: '#communities' },
-    { name: 'Testimonials', href: '#testimonials' },
     { name: 'FAQ', href: '#faq' }
   ];
 

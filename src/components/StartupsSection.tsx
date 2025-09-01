@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Users, GraduationCap, DollarSign, ArrowRight, Sparkles, Zap, Building2, Target, Rocket, Handshake, Award, TrendingUp } from 'lucide-react';
+import { Users, GraduationCap, DollarSign, ArrowRight, Sparkles, Zap, Building2, Target, Rocket, Handshake, Award, TrendingUp, CheckCircle } from 'lucide-react';
 
 const StartupsSection: React.FC = () => {
   const ref = useRef(null);
@@ -11,7 +11,6 @@ const StartupsSection: React.FC = () => {
     {
       icon: Users,
       title: "Co-founder Matching",
-      description: "Find the perfect co-founder with complementary skills and aligned vision",
       features: [
         "Verified profiles with detailed background checks",
         "Structured co-founder discovery process",
@@ -22,7 +21,6 @@ const StartupsSection: React.FC = () => {
     {
       icon: Building2,
       title: "Talent Acquisition",
-      description: "Build your dream team with pre-vetted, high-potential talent",
       features: [
         "Student talent from top institutions",
         "Freelancers ready for long-term commitments",
@@ -33,7 +31,6 @@ const StartupsSection: React.FC = () => {
     {
       icon: Rocket,
       title: "Growth & Mentorship",
-      description: "Accelerate your startup with expert guidance and resources",
       features: [
         "1:1 mentorship from successful founders and VCs",
         "Access to our network of investors and accelerators",
@@ -128,18 +125,17 @@ const StartupsSection: React.FC = () => {
                     {service.title}
                   </h3>
                   
-                  <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
-
                   <ul className="space-y-3 mb-6">
                     {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start space-x-3">
-                        <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-700 dark:text-gray-300 text-sm">{feature}</span>
-                      </li>
-                    ))}
+                    <li key={idx} className="flex items-start space-x-3">
+                    <CheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700 dark:text-gray-300 text-sm">
+                    {feature}
+                    </span>
+                    </li>
+                  ))}
                   </ul>
+
                 </div>
               </div>
             </motion.div>
