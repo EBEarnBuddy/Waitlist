@@ -7,29 +7,29 @@ const FAQSection: React.FC = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+const faqs = [
+  {
+    question: "Is EarnBuddy secure?",
+    answer: "Yes. While payments won't happen directly on our platform during the early stage, all user data, interactions, and connections will be handled securely. We’re prioritizing safety and trust from day one."
+  },
+  {
+    question: "Will I find the right people for my projects?",
+    answer: "That’s the goal! We're actively reaching out to students, freelancers, founders, and creators across multiple domains to ensure EarnBuddy launches with a strong, diverse network of collaborators."
+  },
+  {
+    question: "Who is EarnBuddy for?",
+    answer: "For students, beginners, freelancers, and early-stage founders who want to build real projects, startups, or side hustles—without waiting for ‘someday’."
+  },
+  {
+    question: "I’m just a student/teenager. Can I still join?",
+    answer: "Absolutely. EarnBuddy is designed for curious builders at all stages, including students and teenagers who are just starting out."
+  },
+  {
+    question: "Why join the waitlist now?",
+    answer: "Because you’ll be part of the founding community shaping EarnBuddy. Early members get updates, early invites, and influence over how the platform evolves."
+  }
+];
 
-  const faqs = [
-    {
-      question: "How's EarnBuddy different from freelance platforms?",
-      answer: "We're not built for one-off gigs. We help people collaborate with purpose. Instead of competing for the lowest bid, you build lasting relationships based on shared vision and complementary skills. Think of it as LinkedIn meets GitHub meets Y Combinator."
-    },
-    {
-      question: "Can I use this solo, without a team?",
-      answer: "100%. Explore communities, apply to pods, or start one yourself. Many of our most successful collaborations started with solo builders who found their perfect co-creators through our platform. You're never truly alone when you're part of the EarnBuddy community."
-    },
-    {
-      question: "Do I need to pay to join beta?",
-      answer: "No. Beta is 100% free. Give feedback, earn perks. We believe in building with our community, not extracting from it. Early users who provide valuable feedback get lifetime perks and priority access to new features."
-    },
-    {
-      question: "What makes a good EarnBuddy profile?",
-      answer: "Authenticity over perfection. Share your real interests, past projects (even failed ones!), and what you're genuinely excited to build next. Our matching algorithm prioritizes energy and alignment over just technical skills."
-    },
-    {
-      question: "How do payments work for collaborations?",
-      answer: "We support multiple models: traditional freelance payments, equity splits for startups, revenue sharing for joint ventures, and even barter systems for skill exchanges. The payment structure is always agreed upon before work begins."
-    }
-  ];
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -130,14 +130,14 @@ const FAQSection: React.FC = () => {
             
             <div className="relative z-10">
               <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
-                We Need Your Help
+                The future is being built. The question is, are you on the team?
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-6">
-                Help us build the future of collaboration. Your feedback shapes every feature we create.
+                Join the Waitlist, apply for the Beta, and follow us on LinkedIn to see what unfolds. 
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <motion.a
-                  href="/help-us-make-it-better"
+                  href="tally.so/r/nPN7GP"
                   className="group relative px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-semibold rounded-xl overflow-hidden"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

@@ -5,39 +5,39 @@ import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 const testimonials = [
   {
     id: 1,
-    name: "Meher Patel",
-    role: "Builder @ BITS Goa",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
-    content: "I met my co-founder through a climate pod here. Couldn't have built our MVP without it.",
+    name: "Jay Agarwal",
+    role: "Student and Founder",
+    avatar: "./public/testimonies/jay.png",
+    content: "As a founder, I'm excited by EarnBuddy's vision for building the right team and would love early access.",
     rating: 5,
-    company: "EcoTech Startup"
+    company: "Ganges"
   },
   {
     id: 2,
-    name: "Dev Sharma",
-    role: "Full-stack Freelancer",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-    content: "Pods are incredible. Less pitch, more progress. Found my dream team here.",
+    name: "Mrinal",
+    role: "Student and Freelancer",
+    avatar: "./public/testimonies/mrinal.png",
+    content: "As a freelancer and hackathon enthusiast, I'm genuinely wish to transform my solo project struggles into powerful teamwork.",
     rating: 5,
     company: "Independent"
   },
   {
     id: 3,
-    name: "Aanya Singh",
-    role: "Student & No-code dev",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
-    content: "Joined to freelance. Ended up starting something of my own. This platform changes everything.",
+    name: "Elvis Osano",
+    role: "Freelancer and Founder",
+    avatar: "./public/testimonies/elvis.jpg",
+    content: "As a freelancer, I'm genuinely excited about EarnBuddy's potential to connect me with like-minded builders and mentors who truly care about shared projects.",
     rating: 5,
-    company: "Startup Founder"
+    company: "Upshift Ecommerce"
   },
   {
     id: 4,
-    name: "Rahul Kumar",
-    role: "AI Engineer",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-    content: "The mentorship program helped me scale my startup from idea to funding in 6 months.",
+    name: "Aditi Bansal",
+    role: "Student and Full-stack Developer",
+    avatar: "./public/testimonies/aditi.jpg",
+    content: "EarnBuddy solved a problem I faced, and I'm genuinely excited to be a part of the journey as we build it together.",
     rating: 5,
-    company: "AI Startup"
+    company: "EarnBuddy"
   }
 ];
 
@@ -85,8 +85,7 @@ export const Testimonials: React.FC = () => {
             What <span className="text-emerald-600 dark:text-emerald-400">Builders</span> Say
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Real stories from builders who found their tribe and built something amazing together
-          </p>
+            Stories from the innovators who are already buzzing about the future we're building.          </p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
@@ -194,7 +193,7 @@ export const Testimonials: React.FC = () => {
           viewport={{ once: true }}
         >
           <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
-            Ready to write your own success story?
+            Something big is brewing. Join the innovators already on board to build the future of work.
           </p>
           <motion.a
             href="/discover"

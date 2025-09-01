@@ -31,11 +31,11 @@ const CommunitiesSection: React.FC = () => {
   ];
 
   const pods = [
-    { icon: Cpu, name: "AI", color: "from-blue-500 to-purple-600", members: "2.4k" },
-    { icon: Globe, name: "Web3", color: "from-purple-500 to-pink-600", members: "1.8k" },
-    { icon: Leaf, name: "Climate", color: "from-green-500 to-emerald-600", members: "1.2k" },
-    { icon: Zap, name: "Tech", color: "from-yellow-500 to-orange-600", members: "3.1k" },
-    { icon: DollarSign, name: "Fintech", color: "from-emerald-500 to-emerald-600", members: "1.6k" }
+    { icon: Cpu, name: "AI", color: "from-blue-500 to-purple-600"},
+    { icon: Globe, name: "Web3", color: "from-purple-500 to-pink-600" },
+    { icon: Leaf, name: "Climate", color: "from-green-500 to-emerald-600" },
+    { icon: Zap, name: "Tech", color: "from-yellow-500 to-orange-600" },
+    { icon: DollarSign, name: "Fintech", color: "from-emerald-500 to-emerald-600" }
   ];
 
   return (
@@ -98,7 +98,6 @@ const CommunitiesSection: React.FC = () => {
                   <pod.icon className="w-6 h-6 sm:w-8 sm:h-8" />
                   <div>
                     <h3 className="font-bold text-base sm:text-lg">{pod.name}</h3>
-                    <p className="text-sm opacity-90">{pod.members} members</p>
                   </div>
                 </div>
               </div>
@@ -151,7 +150,7 @@ const CommunitiesSection: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-lime-400/20"></div>
             <div className="relative z-10">
               <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                Are you a tech community leader?
+                Bring your community to our platform.
               </h3>
               <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
                 We're partnering with innovation communities worldwide to connect builders through our platform. Let's discuss how we can help your community grow.
@@ -159,7 +158,7 @@ const CommunitiesSection: React.FC = () => {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <motion.a
-                  href="mailto:communities@earnbuddy.com?subject=Community Partnership Inquiry"
+                  href="mailto:business@earnbuddy.com?subject=Community Partnership Inquiry"
                   className="group px-8 py-4 bg-white text-emerald-600 font-bold rounded-2xl flex items-center gap-2 hover:bg-emerald-50 transition-all duration-300"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}

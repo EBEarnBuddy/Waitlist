@@ -1,49 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Twitter, Linkedin, Heart, ArrowRight } from 'lucide-react';
+import { Twitter, Linkedin } from 'lucide-react';
 
 export const ModernFooter: React.FC = () => {
-  const footerSections = [
-    {
-      title: "Discover",
-      links: [
-        { name: "Explore Pods", href: "/discover" },
-        { name: "Find Freelancers", href: "/discover" },
-        { name: "Browse Startups", href: "/discover" },
-        { name: "Join Communities", href: "/discover" }
-      ]
-    },
-    {
-      title: "Build",
-      links: [
-        { name: "Freelance", href: "/freelance" },
-        { name: "Startups", href: "/startups" },
-        { name: "Pods", href: "/community" },
-        { name: "Rooms", href: "/community" }
-      ]
-    },
-    {
-      title: "Support",
-      links: [
-        { name: "Help Center", href: "#" },
-        { name: "Community Guidelines", href: "#" },
-        { name: "Contact Us", href: "#" },
-        { name: "Feedback", href: "/help-us-make-it-better" }
-      ]
-    },
-    {
-      title: "Company",
-      links: [
-        { name: "About", href: "#" },
-        { name: "Blog", href: "#" },
-        { name: "Careers", href: "#" },
-        { name: "Press", href: "#" }
-      ]
-    }
-  ];
-
   return (
-    <footer className="bg-gray-900 dark:bg-gray-900 text-white relative overflow-hidden">
+    <footer className="bg-gray-900 text-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-10 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -78,6 +39,7 @@ export const ModernFooter: React.FC = () => {
               Build. Collaborate. Earn.
             </p>
 
+            {/* Social Links */}
             <div className="flex space-x-4">
               <motion.a
                 href="https://twitter.com/earnbuddy"
@@ -104,33 +66,37 @@ export const ModernFooter: React.FC = () => {
             </div>
           </div>
 
-          {/* Footer Links */}
-          {footerSections.map((section, index) => (
-            <div key={section.title}>
-              <h3 className="text-lg font-semibold mb-6 text-emerald-400">
-                {section.title}
-              </h3>
-              <ul className="space-y-4">
-                {section.links.map((link, linkIndex) => (
-                  <motion.li
-                    key={link.name}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: linkIndex * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <a
-                      href={link.href}
-                      className="text-gray-400 hover:text-emerald-400 transition-colors duration-200 relative group"
-                    >
-                      {link.name}
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-400 transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-3 text-gray-400">
+              <li><a href="#" className="hover:text-emerald-400 transition-colors">Join Waitlist</a></li>
+              <li><a href="#how-it-works" className="hover:text-emerald-400 transition-colors">About</a></li>
+              <li><a href="#" className="hover:text-emerald-400 transition-colors">For Students</a></li>
+              <li><a href="#" className="hover:text-emerald-400 transition-colors">For Startups</a></li>
+              <li><a href="#" className="hover:text-emerald-400 transition-colors">For Freelancers</a></li>
+              <li><a href="#" className="hover:text-emerald-400 transition-colors">Communities</a></li>
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h4 className="text-xl font-semibold mb-4">Contact</h4>
+            <ul className="space-y-3 text-gray-400">
+              <li><a href="#" className="hover:text-emerald-400 transition-colors">Blog</a></li>
+              <li><a href="#" className="hover:text-emerald-400 transition-colors">Docs</a></li>
+              <li><a href="#" className="hover:text-emerald-400 transition-colors">Support</a></li>
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4 className="text-xl font-semibold mb-4">Company</h4>
+            <ul className="space-y-3 text-gray-400">
+              <li><a href="#" className="hover:text-emerald-400 transition-colors">Careers</a></li>
+              <li><a href="#" className="hover:text-emerald-400 transition-colors">Contact</a></li>
+            </ul>
+          </div>
         </div>
 
         {/* Bottom Bar */}
@@ -139,17 +105,9 @@ export const ModernFooter: React.FC = () => {
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
               © 2025 EarnBuddy. All rights reserved.
             </p>
-
             <div className="flex items-center space-x-6 text-sm">
-              <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">
-                Terms of Service
-              </a>
-              <div className="flex items-center space-x-2 text-gray-400">
-
-              </div>
+              <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">Privacy Policy</a>
+              <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">Terms of Service</a>
             </div>
           </div>
         </div>
@@ -157,3 +115,4 @@ export const ModernFooter: React.FC = () => {
     </footer>
   );
 };
+export default ModernFooter;

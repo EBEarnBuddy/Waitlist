@@ -28,26 +28,7 @@ function App() {
   }, [currentUser, isFirebaseReady, loading, navigate, location.pathname]);
 
   // Show loading only when Firebase is ready and we're actually loading auth state
-  if (loading && isFirebaseReady) {
-    return (
-      <div className="min-h-screen bg-white dark:bg-black flex items-center justify-center">
-        <motion.div
-          className="flex flex-col items-center gap-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-          >
-            <Loader2 className="w-8 h-8 text-emerald-600" />
-          </motion.div>
-          <p className="text-gray-600 dark:text-gray-400">Loading...</p>
-        </motion.div>
-      </div>
-    );
-  }
+  
 
   // Show the landing page for non-authenticated users or when Firebase is not configured
   return (
@@ -56,9 +37,9 @@ function App() {
       <main>
         <HeroSection />
         <HowItWorks />
+        <StudentsSection />
         <StartupsSection />
         <FreelancersSection />
-        <StudentsSection />
         <CommunitiesSection />
         <Testimonials />
         <FAQSection />

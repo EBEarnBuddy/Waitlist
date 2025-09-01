@@ -274,7 +274,7 @@ const HowItWorks: React.FC = () => {
               </p>
 
               <motion.a
-                href="https://tally.so/r/nPN7GP"
+                href="/discover"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white text-emerald-600 font-bold rounded-2xl hover:bg-emerald-50 transition-all duration-300"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}

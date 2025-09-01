@@ -209,36 +209,6 @@ const StudentsSection: React.FC = () => {
             ))}
           </div>
         </motion.div>
-
-        {/* Benefits Section */}
-        <motion.div
-          className="mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        >
-          <h3 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">
-            Why students choose EarnBuddy
-          </h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {benefits.map((benefit, index) => (
-              <motion.div
-                key={index}
-                className="text-center p-6 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-xl border border-gray-200/50 dark:border-gray-700/50"
-                whileHover={{ scale: 1.05, y: -5 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <benefit.icon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                </div>
-                <h4 className="font-semibold text-gray-800 dark:text-white mb-2">{benefit.title}</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{benefit.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
         {/* Testimonials */}
         <motion.div
           className="mb-16"

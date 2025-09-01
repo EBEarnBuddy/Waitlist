@@ -6,7 +6,6 @@ import ProtectedRoute from './components/ProtectedRoute';
 import App from './App.tsx';
 import AuthPage from './pages/AuthPage.tsx';
 import DiscoverPage from './pages/DiscoverPage.tsx';
-import HelpUsPage from './pages/HelpUsPage.tsx';
 import './index.css';
 
 createRoot(document.getElementById('root')!).render(
@@ -19,9 +18,6 @@ createRoot(document.getElementById('root')!).render(
           
           {/* Auth page */}
           <Route path="/auth" element={<AuthPage />} />
-          
-          {/* Help page - accessible to everyone */}
-          <Route path="/help-us-make-it-better" element={<HelpUsPage />} />
           
           {/* Protected waitlist page - redirect to /discover when logged in */}
           <Route path="/discover" element={
