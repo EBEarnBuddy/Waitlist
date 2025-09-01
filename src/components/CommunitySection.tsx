@@ -33,7 +33,7 @@ const CommunitiesSection: React.FC = () => {
   const pods = [
     { icon: Cpu, name: "AI", color: "from-blue-500 to-purple-600"},
     { icon: Globe, name: "Web3", color: "from-purple-500 to-pink-600" },
-    { icon: HandshakeIcon, name: "Startups", color: "from-blue-600 to-indigo-700" },
+    { icon: HandshakeIcon, name: "Startups", color: "from-blue-700 via-blue-500 to-cyan-400" },
     { icon: Zap, name: "Tech", color: "from-yellow-500 to-orange-600" },
     { icon: DollarSign, name: "Finance", color: "from-emerald-500 to-emerald-600" }
   ];
