@@ -8,12 +8,7 @@ const HowItWorks: React.FC = () => {
       step: '01',
       title: 'Create Your Profile',
       subtitle: 'Less profile setup, more time building connections',
-      benefits: [
-        'Answer a few quick questions to personalize your experience',
-        'Showcase your skills, experience, and career goals',
-        'Set your preferences for collaboration and opportunities',
-        'Get matched with the right community and projects'
-      ],
+    
       mockup: {
         type: 'profile',
         title: 'Profile Creation',
@@ -24,12 +19,7 @@ const HowItWorks: React.FC = () => {
       step: '02',
       title: 'Discover Opportunities',
       subtitle: 'Find your perfect match in the builder ecosystem',
-      benefits: [
-        'Explore live startups and freelance opportunities',
-        'Join specialized pods based on your interests',
-        'Connect with founders and fellow builders',
-        'Discover projects that match your skills and ambitions'
-      ],
+    
       mockup: {
         type: 'discovery',
         title: 'Opportunity Discovery',
@@ -40,12 +30,7 @@ const HowItWorks: React.FC = () => {
       step: '03',
       title: 'Collaborate & Build',
       subtitle: 'Turn connections into meaningful partnerships',
-      benefits: [
-        'Apply to opportunities that resonate with your goals',
-        'Connect directly with founders and team members',
-        'Use Creator Rooms for seamless collaboration',
-        'Build lasting relationships and partnerships'
-      ],
+   
       mockup: {
         type: 'collaboration',
         title: 'Collaboration Hub',
@@ -56,12 +41,7 @@ const HowItWorks: React.FC = () => {
       step: '04',
       title: 'Scale & Launch',
       subtitle: 'From collaboration to launching your own venture',
-      benefits: [
-        'Access mentorship from experienced founders',
-        'Get support for team building and recruitment',
-        'Connect with investors and accelerators',
-        'Launch your own startup with our ecosystem'
-      ],
+     
       mockup: {
         type: 'launch',
         title: 'Launch Platform',
@@ -70,11 +50,8 @@ const HowItWorks: React.FC = () => {
     }
   ];
 
-  // Track which step is in view
   const [activeStep, setActiveStep] = useState(0);
   const stepRefs = steps.map(() => useRef<HTMLDivElement>(null));
-
-  // Detect which step is active
   const inViewArray = stepRefs.map(ref => useInView(ref, { amount: 0.6 }));
 
   useEffect(() => {
@@ -83,16 +60,13 @@ const HowItWorks: React.FC = () => {
     });
   }, [inViewArray]);
 
-  // NEW: refs for the scroll column + CTA
   const scrollColRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
 
-  // NEW: give focus to the scrollable column so Arrow keys control it
   useEffect(() => {
     scrollColRef.current?.focus();
   }, []);
 
-  // NEW: handle ArrowUp/ArrowDown to snap steps, then go to CTA
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowDown' || e.key === 'PageDown') {
@@ -100,7 +74,6 @@ const HowItWorks: React.FC = () => {
           e.preventDefault();
           stepRefs[activeStep + 1].current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         } else {
-          // last step -> jump to CTA
           if (ctaRef.current) {
             e.preventDefault();
             ctaRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -111,32 +84,30 @@ const HowItWorks: React.FC = () => {
           e.preventDefault();
           stepRefs[activeStep - 1].current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-        // if at first step, let default scroll up to header
       }
     };
-
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [activeStep, steps.length]); // stepRefs order is stable; no need to include it
+  }, [activeStep, steps.length]);
 
   return (
-    <section id="how-it-works" className="py-20 bg-white dark:bg-black relative overflow-hidden">
+    <section id="how-it-works" className="relative w-full h-screen bg-white dark:bg-black overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-10 right-10 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-10 left-10 w-72 h-72 bg-emerald-400/5 rounded-full blur-3xl animate-pulse"></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 relative z-10 h-full">
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full mb-4"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: 0.1 }}
@@ -145,67 +116,46 @@ const HowItWorks: React.FC = () => {
             <span className="text-emerald-600 dark:text-emerald-400 font-medium">How It Works</span>
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-gray-800 dark:text-white">
             Your journey from <span className="text-emerald-600 dark:text-emerald-400">builder to founder</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
             Four simple steps to transform your skills into meaningful opportunities and partnerships.
           </p>
         </motion.div>
 
-        {/* Main Layout */}
-        <div className="flex flex-col lg:flex-row gap-12">
-          {/* Left Column - Steps (Snap Scroll) */}
+        {/* Main Horizontal Layout */}
+        <div className="flex flex-row w-full h-[calc(100%-8rem)] gap-4">
+          {/* Left Column - Steps */}
           <div
             ref={scrollColRef}
             tabIndex={0}
             aria-label="How it works steps"
-            className="flex-1 snap-y snap-mandatory h-screen overflow-y-scroll space-y-32 pr-8 focus:outline-none focus-visible:outline-none
-                       [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+            className="w-1/2 h-full overflow-y-scroll snap-y snap-mandatory pr-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
           >
-            {steps.map((step, index) => (
+            {steps.map((step, idx) => (
               <motion.div
-                key={index}
-                ref={stepRefs[index]}
-                className="h-screen flex flex-col justify-center snap-start"
+                key={idx}
+                ref={stepRefs[idx]}
+                className="h-full flex flex-col justify-center snap-start mb-12"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* Step Content */}
-                <div className="space-y-6">
+                <div className="space-y-4">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-lg">
-                      {step.step}
-                    </div>
-                    <h3 className="text-3xl font-bold text-gray-800 dark:text-white">{step.title}</h3>
+                    <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-lg">{step.step}</div>
+                    <h5 className=" font-bold text-gray-800 dark:text-white">{step.title}</h5>
                   </div>
-
-                  <h4 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">{step.subtitle}</h4>
-
-                  <ul className="space-y-3">
-                    {step.benefits.map((benefit, idx) => (
-                      <motion.li
-                        key={idx}
-                        className="flex items-start space-x-3 group"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.25, delay: idx * 0.05 }}
-                      >
-                        <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                        <span className="text-gray-700 dark:text-gray-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                          {benefit}
-                        </span>
-                      </motion.li>
-                    ))}
-                  </ul>
+                  <h6 className="ml-4 text-gray-800 dark:text-white">{step.subtitle}</h6>
+                  
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {/* Right Column - Fixed Mockup */}
-          <div className="flex-1 sticky top-0 h-screen flex items-center justify-center">
+          {/* Right Column - Mockup */}
+          <div className="w-1/2 h-full flex items-center justify-center sticky top-0">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeStep}
@@ -216,7 +166,6 @@ const HowItWorks: React.FC = () => {
                 className="relative w-64 h-96 bg-gray-900 rounded-3xl p-2 shadow-2xl"
               >
                 <div className="w-full h-full bg-white dark:bg-gray-800 rounded-2xl overflow-hidden relative">
-                  {/* Status Bar */}
                   <div className="h-6 bg-gray-100 dark:bg-gray-700 flex items-center justify-between px-4 text-xs">
                     <span>9:41</span>
                     <div className="flex items-center space-x-1">
@@ -225,28 +174,17 @@ const HowItWorks: React.FC = () => {
                       <div className="w-1 h-1 bg-gray-600 rounded-full"></div>
                     </div>
                   </div>
-
-                  {/* App Content */}
-                  <div className="p-4 space-y-4">
-                    {/* Header */}
+                  <div className="p-4 space-y-2">
                     <div className="text-center">
                       <h4 className="font-bold text-gray-800 dark:text-white text-sm">{steps[activeStep].mockup.title}</h4>
-                      <div className="w-8 h-1 bg-emerald-500 rounded-full mx-auto mt-2"></div>
+                      <div className="w-8 h-1 bg-emerald-500 rounded-full mx-auto mt-1"></div>
                     </div>
-
-                    {/* Content Elements */}
-                    <div className="space-y-3">
-                      {steps[activeStep].mockup.elements.map((element, idx) => (
-                        <motion.div
-                          key={idx}
-                          className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 flex items-center justify-between"
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.25, delay: idx * 0.05 }}
-                        >
-                          <span className="text-xs text-gray-600 dark:text-gray-300">{element}</span>
+                    <div className="space-y-2">
+                      {steps[activeStep].mockup.elements.map((el, i) => (
+                        <div key={i} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-2 flex items-center justify-between">
+                          <span className="text-xs text-gray-600 dark:text-gray-300">{el}</span>
                           <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                        </motion.div>
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -258,8 +196,8 @@ const HowItWorks: React.FC = () => {
 
         {/* Final CTA */}
         <motion.div
-          ref={ctaRef} // NEW: used to jump here from last step
-          className="text-center mt-20"
+          ref={ctaRef}
+          className="text-center mt-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.4 }}
@@ -272,7 +210,6 @@ const HowItWorks: React.FC = () => {
               <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
                 Join thousands of builders already creating meaningful connections and opportunities.
               </p>
-
               <motion.a
                 href="/discover"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white text-emerald-600 font-bold rounded-2xl hover:bg-emerald-50 transition-all duration-300"

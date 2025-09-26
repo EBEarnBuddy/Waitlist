@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { MessageCircle, Zap, Lock, Trophy, Cpu, Leaf, DollarSign, Globe, Sparkles,HandshakeIcon, ArrowRight, Users, Building2, Handshake } from 'lucide-react';
+import { MessageCircle, Zap, Lock, Trophy, Cpu, Leaf, DollarSign, Globe,HandshakeIcon, ArrowRight, Users, Building2, Handshake } from 'lucide-react';
 
 const CommunitiesSection: React.FC = () => {
   const ref = useRef(null);
@@ -60,7 +60,7 @@ const CommunitiesSection: React.FC = () => {
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Sparkles className="w-4 h-4 text-emerald-500" />
+           
             <span className="text-emerald-600 dark:text-emerald-400 font-medium">Communities</span>
           </motion.div>
 
@@ -127,7 +127,7 @@ const CommunitiesSection: React.FC = () => {
                   
                   <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
                     {feature.title}
-                    <Sparkles className="w-4 h-4 text-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    
                   </h3>
                   
                   <p className="text-gray-600 dark:text-gray-400 leading-relaxed">

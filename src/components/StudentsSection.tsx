@@ -103,6 +103,8 @@ const StudentsSection: React.FC = () => {
 
   return (
     <section id="students" className="py-20 bg-white dark:bg-black relative overflow-hidden">
+      
+      
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -138,50 +140,8 @@ const StudentsSection: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Opportunities Grid */}
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-          {opportunities.map((opportunity, index) => (
-            <motion.div
-              key={index}
-              className="group relative"
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-            >
-              <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-emerald-500/20 h-full relative overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:scale-105 group-hover:border-emerald-500/40">
-                {/* Glow effect */}
-                <div className="absolute -inset-2 bg-gradient-to-r from-emerald-400/20 to-lime-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                <div className="relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-xl flex items-center justify-center mb-6 relative">
-                    <opportunity.icon className="w-8 h-8 text-white" />
-                    <div className="absolute inset-0 bg-emerald-500/30 rounded-xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
-                    <Sparkles className="w-5 h-5 text-emerald-500" />
-                    {opportunity.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                    {opportunity.description}
-                  </p>
 
-                  <ul className="space-y-3">
-                    {opportunity.details.map((detail, idx) => (
-                      <li key={idx} className="flex items-start space-x-3">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700 dark:text-gray-300">{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Institutional Partnerships */}
+         {/* Institutional Partnerships */}
         <motion.div
           className="mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -252,6 +212,51 @@ const StudentsSection: React.FC = () => {
           </div>
         </motion.div>
 
+
+        {/* Opportunities Grid */}
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          {opportunities.map((opportunity, index) => (
+            <motion.div
+              key={index}
+              className="group relative"
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+            >
+              <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-emerald-500/20 h-full relative overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:scale-105 group-hover:border-emerald-500/40">
+                {/* Glow effect */}
+                <div className="absolute -inset-2 bg-gradient-to-r from-emerald-400/20 to-lime-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-xl flex items-center justify-center mb-6 relative">
+                    <opportunity.icon className="w-8 h-8 text-white" />
+                    <div className="absolute inset-0 bg-emerald-500/30 rounded-xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
+                    
+                    {opportunity.title}
+                  </h3>
+                  
+                  <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                    {opportunity.description}
+                  </p>
+
+                  <ul className="space-y-3">
+                    {opportunity.details.map((detail, idx) => (
+                      <li key={idx} className="flex items-start space-x-3">
+                        <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-700 dark:text-gray-300">{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+       
         </div>
     </section>
   );

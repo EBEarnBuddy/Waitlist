@@ -184,13 +184,10 @@ const StartupsSection: React.FC = () => {
               <h3 className="text-3xl md:text-4xl font-bold mb-4">
                 Ready to build your dream team?
               </h3>
-              <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
-                Join 156+ startups already building with EarnBuddy. Get early access to our exclusive startup program.
-              </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <motion.a
-                  href="mailto:startups@earnbuddy.com?subject=Startup Partnership Inquiry"
+                  href="mailto:business@earnbuddy.tech?subject=Startup Partnership Inquiry"
                   className="group px-8 py-4 bg-white text-emerald-600 font-bold rounded-2xl flex items-center gap-2 hover:bg-emerald-50 transition-all duration-300"
                   whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
@@ -209,9 +206,7 @@ const StartupsSection: React.FC = () => {
           </motion.a>
               </div>
               
-              <p className="text-sm text-emerald-200 mt-6">
-                Free consultation • No commitment required • Response within 24 hours
-              </p>
+             
             </div>
           </div>
         </motion.div>

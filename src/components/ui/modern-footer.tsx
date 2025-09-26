@@ -78,26 +78,26 @@ export const ModernFooter: React.FC = () => {
           </div>
 
           {/* Resources */}
-          <div>
+          <div className='lg:col-span-3'>
             <h4 className="text-xl font-semibold mb-4">Contact</h4>
             <ul className="space-y-3 text-gray-400">
-              <li><a href="#" className="hover:text-emerald-400 transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-emerald-400 transition-colors">Docs</a></li>
-              <li><a href="#" className="hover:text-emerald-400 transition-colors">Support</a></li>
+              <li><a href="#" className="hover:text-emerald-400 transition-colors">business@earnbuddy.tech</a></li>
+              <li><a href="#" className="hover:text-emerald-400 transition-colors">suyash@earnbuddy.tech | arinjay@earnbuddy.tech</a></li>
+              <li><a href="#" className="hover:text-emerald-400 transition-colors">+91 7390900769 | +91 8810508197</a></li>
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Company 
           <div>
             <h4 className="text-xl font-semibold mb-4">Company</h4>
             <ul className="space-y-3 text-gray-400">
               <li><a href="#" className="hover:text-emerald-400 transition-colors">Careers</a></li>
               <li><a href="#" className="hover:text-emerald-400 transition-colors">Contact</a></li>
             </ul>
-          </div>
+          </div>*/}
         </div>
 
-        {/* Bottom Bar */}
+        {/* Bottom Bar*/} 
         <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">

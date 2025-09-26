@@ -189,13 +189,13 @@ const HeroSection: React.FC = () => {
               </motion.a>
 
               <motion.a
-                href="https://tally.so/r/nPN7GP"
+                href="#how-it-works"
                 className="group px-8 xs:px-10 py-4 xs:py-5 border-2 border-emerald-500/30 text-emerald-700 dark:text-emerald-400 font-bold rounded-2xl hover:bg-emerald-500/10 transition-all duration-300 relative overflow-hidden text-base xs:text-lg"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <span className="relative z-10">Get Early Access</span>
+                <span className="relative z-10">Know More</span>
                 <motion.div
                   className="absolute inset-0 bg-emerald-500/5"
                   initial={{ scale: 0 }}

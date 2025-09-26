@@ -134,6 +134,7 @@ const DiscoverPage: React.FC = () => {
   }));
 
   return (
+    
     <div className="min-h-screen bg-white dark:bg-black relative overflow-hidden">
       {/* Profile Dropdown */}
       <div className="fixed top-4 right-4 z-50">

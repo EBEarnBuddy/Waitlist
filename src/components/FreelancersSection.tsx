@@ -164,7 +164,7 @@ const FreelancersSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <h3 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">
-            Why top freelancers choose EarnBuddy
+            Why EarnBuddy
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -192,30 +192,17 @@ const FreelancersSection: React.FC = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 1.0 }}
         >
-          <div className="bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-lime-400/20"></div>
-            <div className="relative z-10">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                Ready to level up your freelance career?
-              </h3>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 
                 <motion.a
                   href="/discover"
-                  className="px-8 py-4 border-2 border-white/30 text-white font-bold rounded-2xl hover:bg-white/10 transition-all duration-300"
+                  className="px-8 py-4 border-2 border-emerald-600/30 text-emerald-600 font-bold rounded-2xl hover:bg-emerald-400/10 transition-all duration-300"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   Join Waitlist
                 </motion.a>
               </div>
-              
-              <p className="text-sm text-emerald-200 mt-6">
-                Free profile review • No upfront fees • Priority access for early joiners
-              </p>
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>
