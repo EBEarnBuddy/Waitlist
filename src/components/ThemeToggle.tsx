@@ -11,7 +11,7 @@ const ThemeToggle: React.FC = () => {
     const savedTheme = localStorage.getItem('theme');
     
     // Use saved theme if available, otherwise use system preference
-    const shouldBeDark = savedTheme ? savedTheme === 'dark' : systemPrefersDark;
+    const shouldBeDark = false; //savedTheme ? savedTheme === 'dark' : systemPrefersDark;
     
     setIsDark(shouldBeDark);
     

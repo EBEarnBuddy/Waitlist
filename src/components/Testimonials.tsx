@@ -7,7 +7,7 @@ const testimonials = [
     id: 1,
     name: "Jay Agarwal",
     role: "Student and Founder",
-    avatar: "./public/testimonies/jay.png",
+    avatar: "./testimonies/Jay.png",
     content: "As a founder, I'm excited by EarnBuddy's vision for building the right team and would love early access.",
     rating: 5,
     company: "Ganges"
@@ -16,7 +16,7 @@ const testimonials = [
     id: 2,
     name: "Mrinal",
     role: "Student and Freelancer",
-    avatar: "./public/testimonies/mrinal.png",
+    avatar: "./testimonies/mrinal.png",
     content: "As a freelancer and hackathon enthusiast, I'm genuinely wish to transform my solo project struggles into powerful teamwork.",
     rating: 5,
     company: "Independent"
@@ -25,7 +25,7 @@ const testimonials = [
     id: 3,
     name: "Elvis Osano",
     role: "Freelancer and Founder",
-    avatar: "./public/testimonies/elvis.jpg",
+    avatar: "./testimonies/elvis.jpg",
     content: "As a freelancer, I'm genuinely excited about EarnBuddy's potential to connect me with like-minded builders and mentors who truly care about shared projects.",
     rating: 5,
     company: "Upshift Ecommerce"
@@ -34,7 +34,7 @@ const testimonials = [
     id: 4,
     name: "Aditi Bansal",
     role: "Student and Full-stack Developer",
-    avatar: "./public/testimonies/aditi.jpg",
+    avatar: "./testimonies/aditi.jpg",
     content: "EarnBuddy solved a problem I faced, and I'm genuinely excited to be a part of the journey as we build it together.",
     rating: 5,
     company: "EarnBuddy"

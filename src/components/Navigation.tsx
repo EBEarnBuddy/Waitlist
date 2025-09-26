@@ -143,7 +143,7 @@ const Navigation: React.FC = () => {
 
               {/* Auth Buttons */}
               <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
-                <ThemeToggle />
+               {/*<ThemeToggle />*/}
                 <GradientButton
                   onClick={() => handleAuthClick(true)}
                   className="shadow-lg hover:shadow-emerald-500/25 px-3 lg:px-6 py-3 text-sm lg:text-base"
@@ -162,7 +162,7 @@ const Navigation: React.FC = () => {
 
               {/* Mobile Menu Button */}
               <div className="lg:hidden flex items-center space-x-2">
-                <ThemeToggle />
+                {/*<ThemeToggle />*/}
                 <motion.button
                   className="p-2 rounded-xl hover:bg-gray-100/50 dark:hover:bg-gray-800/50 transition-colors"
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

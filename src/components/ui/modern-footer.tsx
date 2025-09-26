@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Twitter, Linkedin } from 'lucide-react';
+import { Mail, Linkedin } from 'lucide-react';
 
 export const ModernFooter: React.FC = () => {
   return (
@@ -18,8 +18,7 @@ export const ModernFooter: React.FC = () => {
           <div className="lg:col-span-2">
             <motion.div
               className="flex items-center space-x-3 mb-6"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              
             >
               <div className="relative">
                 <img
@@ -42,21 +41,21 @@ export const ModernFooter: React.FC = () => {
             {/* Social Links */}
             <div className="flex space-x-4">
               <motion.a
-                href="https://twitter.com/earnbuddy"
-                target="_blank"
+                href="https://mailto:business@earnbuddy.tech?subject=Inquiry%20about%20EarnBuddy" 
+                target='_blank'
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-blue-600 transition-all duration-300 relative overflow-hidden group"
+                className="w-12 h-12 flex items-center justify-center transition-all duration-300 relative overflow-hidden group"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Twitter className="w-6 h-6 relative z-10" />
+                <Mail className="w-6 h-6 relative z-10" />
                 <div className="absolute inset-0 bg-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </motion.a>
               <motion.a
                 href="https://linkedin.com/company/earnbuddy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-blue-700 transition-all duration-300 relative overflow-hidden group"
+                className="w-12 h-12  flex items-center justify-center transition-all duration-300 relative overflow-hidden group"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -70,12 +69,11 @@ export const ModernFooter: React.FC = () => {
           <div>
             <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-3 text-gray-400">
-              <li><a href="#" className="hover:text-emerald-400 transition-colors">Join Waitlist</a></li>
-              <li><a href="#how-it-works" className="hover:text-emerald-400 transition-colors">About</a></li>
-              <li><a href="#" className="hover:text-emerald-400 transition-colors">For Students</a></li>
-              <li><a href="#" className="hover:text-emerald-400 transition-colors">For Startups</a></li>
-              <li><a href="#" className="hover:text-emerald-400 transition-colors">For Freelancers</a></li>
-              <li><a href="#" className="hover:text-emerald-400 transition-colors">Communities</a></li>
+              
+              <li><a href="#students" className="hover:text-emerald-400 transition-colors">For Students</a></li>
+              <li><a href="#startups" className="hover:text-emerald-400 transition-colors">For Startups</a></li>
+              <li><a href="#freelancers" className="hover:text-emerald-400 transition-colors">For Freelancers</a></li>
+              <li><a href="#communities" className="hover:text-emerald-400 transition-colors">Communities</a></li>
             </ul>
           </div>
 
