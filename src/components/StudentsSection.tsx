@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { GraduationCap, Building2, Users, Star, Zap, ArrowRight, Sparkles, Target, Award, Globe, CheckCircle, Rocket, Handshake } from 'lucide-react';
+import { 
+  GraduationCap, Building2, Users, Star, Zap, ArrowRight, Sparkles, Target, Award, Globe, CheckCircle, Rocket, Handshake 
+} from 'lucide-react';
 
 const StudentsSection: React.FC = () => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const opportunities = [
@@ -15,8 +16,6 @@ const StudentsSection: React.FC = () => {
       details: [
         "Internships with early-stage and funded startups",
         "Real-world project experience with actual impact",
-        "Mentorship from experienced founders and developers",
-        "Portfolio-building opportunities for your career"
       ]
     },
     {
@@ -26,8 +25,6 @@ const StudentsSection: React.FC = () => {
       details: [
         "Network with students from IIIT BHU, IITs, NITs, and more",
         "Collaborate on projects and hackathons",
-        "Peer learning and skill development",
-        "Access to exclusive student-only opportunities"
       ]
     },
     {
@@ -35,8 +32,6 @@ const StudentsSection: React.FC = () => {
       title: "Premium Opportunities",
       description: "Access high-quality gigs and long-term contracts",
       details: [
-        "Curated opportunities matching your skills and interests",
-        "Competitive compensation for quality work",
         "Flexible schedules that work with your academic commitments",
         "Pathway to full-time roles and co-founder opportunities"
       ]
@@ -45,20 +40,10 @@ const StudentsSection: React.FC = () => {
 
   const partnerships = [
     {
-      name: "IIIT BHU E-Cell",
+      name: "IIT BHU E-Cell",
       description: "Official partnership for student opportunities and innovation",
-      logo: "/partners/iiit-bhu.svg"
+      logo: "./ecell iit bhu.webp"
     },
-    {
-      name: "IIT BHU Startup Cell",
-      description: "Collaboration for startup ecosystem development",
-      logo: "/partners/iit-bhu.svg"
-    },
-    {
-      name: "NIT Student Bodies",
-      description: "Network of NIT student organizations",
-      logo: "/partners/nit-network.svg"
-    }
   ];
 
   const benefits = [
@@ -86,15 +71,15 @@ const StudentsSection: React.FC = () => {
 
   const testimonials = [
     {
-      name: "Rahul Sharma",
-      position: "Startup Head, IIT BHU",
+      name: "Gourav Pandey",
+      position: "Startup Head, IIT BHU E-cell",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
       quote: "EarnBuddy has transformed how our students access real-world opportunities. The quality of startups and the hands-on experience our students get is unmatched. It's exactly what the Indian startup ecosystem needed.",
       rating: 5
     },
     {
-      name: "Priya Patel",
-      position: "Co-Head, IIT BHU Startup Cell",
+      name: "Oppilan",
+      position: "Startup Co-Head, IIT BHU E-Cell",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
       quote: "The platform's focus on quality over quantity means our students work on meaningful projects that actually help their careers. The mentorship and networking opportunities are invaluable.",
       rating: 5
@@ -103,8 +88,6 @@ const StudentsSection: React.FC = () => {
 
   return (
     <section id="students" className="py-20 bg-white dark:bg-black relative overflow-hidden">
-      
-      
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -140,35 +123,46 @@ const StudentsSection: React.FC = () => {
           </p>
         </motion.div>
 
-
-         {/* Institutional Partnerships */}
+        {/* Institutional Partnerships */}
         <motion.div
           className="mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <h3 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">
-            Partnering with India's top institutions
-          </h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+         
+          <div className="flex justify-center">
             {partnerships.map((partner, index) => (
               <motion.div
                 key={index}
-                className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-emerald-500/20 text-center"
-                whileHover={{ scale: 1.05, y: -5 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="w-16 h-16 bg-emerald-500/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Building2 className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
+                className="w-full max-w-4xl bg-white dark:bg-gray-900 rounded-3xl p-10 shadow-2xl border border-gray-100 dark:border-emerald-500/30 text-center cursor-pointer transform transition-transform duration-300"
+                whileHover={{ scale: 1.03, y: -3, boxShadow: "0 25px 50px rgba(0,0,0,0.2)" }}
+              >  <h3 className="text-3xl font-extrabold text-center text-emerald-600 dark:text-white mb-12">
+            Partnering with India's Top Institutions
+          </h3>
+
+                <div className="w-28 h-28 bg-gradient-to-tr from-emerald-100 to-emerald-200 dark:from-emerald-800 dark:to-emerald-900 rounded-xl flex items-center justify-center mx-auto mb-6">
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} Logo`}
+                    className="w-16 h-16 object-contain"
+                    loading="lazy"
+                  />
                 </div>
-                <h4 className="font-bold text-gray-800 dark:text-white mb-2">{partner.name}</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{partner.description}</p>
+                <h4 className="font-bold text-2xl text-gray-800 dark:text-white mb-3">
+                  {partner.name}
+                </h4>
+                <p className="text-base text-gray-600 dark:text-gray-400 mb-6">
+                  {partner.description}
+                </p>
+                <span className="inline-block bg-emerald-100 dark:bg-emerald-700 text-emerald-800 dark:text-emerald-200 text-sm font-medium px-4 py-2 rounded-full">
+                  Verified Partner
+                </span>
               </motion.div>
             ))}
           </div>
         </motion.div>
+
         {/* Testimonials */}
         <motion.div
           className="mb-16"
@@ -179,7 +173,7 @@ const StudentsSection: React.FC = () => {
           <h3 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">
             What our institutional partners say
           </h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
               <motion.div
@@ -212,52 +206,51 @@ const StudentsSection: React.FC = () => {
           </div>
         </motion.div>
 
-
         {/* Opportunities Grid */}
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-          {opportunities.map((opportunity, index) => (
-            <motion.div
-              key={index}
-              className="group relative"
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-            >
-              <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-emerald-500/20 h-full relative overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:scale-105 group-hover:border-emerald-500/40">
-                {/* Glow effect */}
-                <div className="absolute -inset-2 bg-gradient-to-r from-emerald-400/20 to-lime-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                <div className="relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-xl flex items-center justify-center mb-6 relative">
-                    <opportunity.icon className="w-8 h-8 text-white" />
-                    <div className="absolute inset-0 bg-emerald-500/30 rounded-xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
-                  </div>
+          {opportunities.map((opportunity, index) => {
+            const OpportunityIcon = opportunity.icon;
+            return (
+              <motion.div
+                key={index}
+                className="group relative"
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+              >
+                <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-emerald-500/20 h-full relative overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:scale-105 group-hover:border-emerald-500/40">
+                  {/* Glow effect */}
+                  <div className="absolute -inset-2 bg-gradient-to-r from-emerald-400/20 to-lime-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   
-                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
+                  <div className="relative z-10">
+                    <div className="w-16 h-16 bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-xl flex items-center justify-center mb-6 relative">
+                      <OpportunityIcon className="w-8 h-8 text-white" />
+                      <div className="absolute inset-0 bg-emerald-500/30 rounded-xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
+                    </div>
                     
-                    {opportunity.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                    {opportunity.description}
-                  </p>
+                    <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
+                      {opportunity.title}
+                    </h3>
+                    
+                    <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                      {opportunity.description}
+                    </p>
 
-                  <ul className="space-y-3">
-                    {opportunity.details.map((detail, idx) => (
-                      <li key={idx} className="flex items-start space-x-3">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700 dark:text-gray-300">{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
+                    <ul className="space-y-3">
+                      {opportunity.details.map((detail, idx) => (
+                        <li key={idx} className="flex items-start space-x-3">
+                          <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-700 dark:text-gray-300">{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
-
-       
-        </div>
+      </div>
     </section>
   );
 };

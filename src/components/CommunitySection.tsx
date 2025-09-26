@@ -177,9 +177,7 @@ const CommunitiesSection: React.FC = () => {
                 </motion.a>
               </div>
               
-              <p className="text-sm text-emerald-200 mt-6">
-                Free consultation • Custom integration options • Priority access for partners
-              </p>
+              
             </div>
           </div>
         </motion.div>
