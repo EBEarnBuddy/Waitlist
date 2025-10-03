@@ -23,7 +23,7 @@ const StudentsSection: React.FC = () => {
       title: "Exclusive Student Network",
       description: "Connect with top talent from India's premier institutions",
       details: [
-        "Network with students from IIIT BHU, IITs, NITs, and more",
+        "Network with students from various IIITs, IITs, and NITs",
         "Collaborate on projects and hackathons",
       ]
     },
@@ -72,17 +72,16 @@ const StudentsSection: React.FC = () => {
   const testimonials = [
     {
       name: "Gourav Pandey",
-      position: "Startup Head, IIT BHU E-cell",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-      quote: "EarnBuddy has transformed how our students access real-world opportunities. The quality of startups and the hands-on experience our students get is unmatched. It's exactly what the Indian startup ecosystem needed.",
-      rating: 5
-    },
+      position: "Startup Assistance Head, E-Cell IIT BHU",
+      avatar: "./partners/iitbhu/gourav.jpeg",
+      quote: "Earnbuddy is the kind of platform every startup ecosystem needs today. It connects ambitious campus talent with budding startups, making collaboration easier and more impactful. Platforms like these create a self-sufficient ecosystem where both sides support and grow with each other, raising the overall entrepreneurial culture. Having been closely connected with student founders myself, I know how valuable this support truly is — and Earnbuddy is driven to prove its impact"},
+  
     {
       name: "Oppilan",
-      position: "Startup Co-Head, IIT BHU E-Cell",
-      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
-      quote: "The platform's focus on quality over quantity means our students work on meaningful projects that actually help their careers. The mentorship and networking opportunities are invaluable.",
-      rating: 5
+      position: "Startup Assistance   Head, E-Cell IIT BHU",
+      avatar: "./partners/iitbhu/oppilan.png",
+      quote: "EarnBuddy has been instrumental in strengthening the founder–developer ecosystem for student entrepreneurs at IIT BHU. By connecting builders, founders, and innovators on one platform, it has made collaboration easier and more impactful. As someone closely working with student founders, I’ve seen how EarnBuddy accelerates their journey from ideas to execution."
+    
     }
   ];
 
@@ -191,11 +190,7 @@ const StudentsSection: React.FC = () => {
                   <div>
                     <h4 className="font-bold text-gray-800 dark:text-white">{testimonial.name}</h4>
                     <p className="text-sm text-gray-600 dark:text-gray-400">{testimonial.position}</p>
-                    <div className="flex items-center gap-1 mt-1">
-                      {Array.from({ length: testimonial.rating }).map((_, i) => (
-                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                      ))}
-                    </div>
+                    
                   </div>
                 </div>
                 <blockquote className="text-gray-700 dark:text-gray-300 italic leading-relaxed">
