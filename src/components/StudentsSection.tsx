@@ -40,7 +40,7 @@ const StudentsSection: React.FC = () => {
 
   const partnerships = [
     {
-      name: "IIT BHU E-Cell",
+      name: "E-Cell IIT-BHU",
       description: "Official partnership for student opportunities and innovation",
       logo: "./partners/iitbhu/ecell iit bhu.webp"
     },
